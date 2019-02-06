@@ -107,9 +107,8 @@
 
 <div class="myak"> Поиск по User name &raquo;</div>
 <div class="ted">
-    <form class="move" method="post" th:action="@{/filterAgat2Users}">
-        <input type='hidden' value='${_csrf.token}' name='${_csrf.parameterName}'/>
-        <input type="text" name="filterAgat2UsersFilter">
+    <form class="move" method="get" th:action="@{/agat2Users}">
+        <input type="text" name="filterAgat2UsersFilter" th:value="${filterAgat2UsersFilter}">
         <button class="btn-find" type="submit">Найти</button>
     </form>
 </div>

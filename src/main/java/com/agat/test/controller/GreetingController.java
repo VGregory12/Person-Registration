@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -350,9 +351,19 @@ public class GreetingController {
 
 
     @GetMapping("/agat2Users")
-    public String agat2Users(Map<String, Object> model) {
+    public String agat2Users(@RequestParam(required = false, defaultValue = "") String filterAgat2UsersFilter, Model model) {
         Iterable<Agat2Users> agat2UsersTable = Agat2UsersRepo.findAll();
-        model.put("agat2UsersTable", agat2UsersTable);
+
+        if(filterAgat2UsersFilter != null && !filterAgat2UsersFilter.isEmpty()){
+            agat2UsersTable = Agat2UsersRepo.findByUsername(filterAgat2UsersFilter);
+
+        } else {
+            agat2UsersTable = Agat2UsersRepo.findAll();
+
+        }
+        model.addAttribute("agat2UsersTable", agat2UsersTable);
+        model.addAttribute("filterAgat2UsersFilter", filterAgat2UsersFilter);
+
         return "agat2Users.html";
     }
 
@@ -377,19 +388,19 @@ public class GreetingController {
         return "redirect:/agat2Users";
     }
 
-    @PostMapping("filterAgat2Users")
-    public String filterAgat2Users(@RequestParam String filterAgat2UsersFilter, Map<String, Object> model){
-
-        Iterable<Agat2Users> agat2UsersTable;
-        if(filterAgat2UsersFilter != null && !filterAgat2UsersFilter.isEmpty()){
-            agat2UsersTable = Agat2UsersRepo.findByUsername(filterAgat2UsersFilter);
-            model.put("agat2UsersTable", agat2UsersTable);
-            return "agat2Users.html";
-        } else {
-            agat2UsersTable = Agat2UsersRepo.findAll();
-            model.put("agat2UsersTable", agat2UsersTable);
-            return "redirect:/agat2Users";
-        }
-    }
+//    @PostMapping("filterAgat2Users")
+//    public String filterAgat2Users(@RequestParam String filterAgat2UsersFilter, Map<String, Object> model){
+//
+//        Iterable<Agat2Users> agat2UsersTable;
+//        if(filterAgat2UsersFilter != null && !filterAgat2UsersFilter.isEmpty()){
+//            agat2UsersTable = Agat2UsersRepo.findByUsername(filterAgat2UsersFilter);
+//            model.put("agat2UsersTable", agat2UsersTable);
+//            return "agat2Users.html";
+//        } else {
+//            agat2UsersTable = Agat2UsersRepo.findAll();
+//            model.put("agat2UsersTable", agat2UsersTable);
+//            return "redirect:/agat2Users";
+//        }
+//    }
 
 }
