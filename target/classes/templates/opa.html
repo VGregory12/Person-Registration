@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/jreco.css" th:href="@{/jreco.css}" rel="stylesheet" type="text/css" media="all"/>
+</head>
+<body>
+
+<div th:text=" 'Hola,' + ${name}"/>
+<form method="post">
+    <input type="text" name="text" placeholder="Введите сообщение"  />
+    <input type="text" name="tag" placeholder="тэг" />
+    <button type="submit">Добавить</button>
+</form>
+</body>
+</html>

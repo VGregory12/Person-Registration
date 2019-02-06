@@ -1,0 +1,150 @@
+<html xmlns:c="http://java.sun.com/xml/ns/javaee" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style media="all">
+        body {
+            background: #d9d9d9;
+            margin: 30px 0px 100px 100px;
+            font-size: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        a:hover {
+            color: #151CFF;
+        }
+
+        .table, .td1, .td {
+            border: 1px solid black;
+        }
+
+        th {
+            border: 1px solid black;
+        }
+
+        .table {
+            width: 80%;
+            border-collapse: collapse;
+
+        }
+
+        tr:nth-child(even) {
+            background-color: #b2b6ba;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        .btn-del {
+            border: 1px solid #800000;
+            background: #A80000;
+        }
+
+        .td2 {
+            width: 10px;
+        }
+
+        .ted {
+            margin-top: 20px;
+        }
+
+        input {
+            width: 200px;
+            height: 30px;
+            background: #b2b6ba;
+            border: 1px solid black;
+            margin-bottom: 10px;
+        }
+
+        .btn-add, .btn-find {
+            width: 100px;
+            height: 30px;
+            background: #b2b6ba;
+            border: 1px solid black;
+        }
+
+        .myak {
+            margin-top: 20px;
+        }
+
+        .myak:hover {
+            color: #6d6d6d;
+        }
+
+        .find {
+            margin-bottom: 10px;
+        }
+
+        .find:hover {
+            color: #6d6d6d;
+        }
+
+        .main-page {
+            font-size: 15px;
+
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="main-page"><a href="/main2">Главная</a></div>
+<div class="find">Добавление данных &raquo;</div>
+<div>
+    <form class="find-move" method="post" th:action="@{/agat2Users}">
+        <input type='hidden' value='${_csrf.token}' name='${_csrf.parameterName}'/>
+        <div><input type="text" name="USER_NAME" placeholder="Введите user_id"/></div>
+        <div><input type="text" name="USER_ID" placeholder="Введите user_id"/></div>
+        <div><input type="date" name="ENTRY_DATE" placeholder="Введите entry_date"/></div>
+        <div>
+            <button class="btn-add" type="submit">Добавить</button>
+        </div>
+    </form>
+</div>
+
+<div class="myak"> Поиск по User name &raquo;</div>
+<div class="ted">
+    <form class="move" method="post" th:action="@{/filterAgat2Users}">
+        <input type='hidden' value='${_csrf.token}' name='${_csrf.parameterName}'/>
+        <input type="text" name="filterAgat2UsersFilter">
+        <button class="btn-find" type="submit">Найти</button>
+    </form>
+</div>
+
+<table class="table">
+    <tr>
+        <th>User name</th>
+        <th>User id</th>
+        <th>Entry date</th>
+        <th>Delete</th>
+    </tr>
+
+    <tr th:each="agat2Users : ${agat2UsersTable}">
+        <td class="td1" th:utext="${agat2Users.username}"/>
+        <td class="td1" th:utext="${agat2Users.user_id}"/>
+        <td class="td" th:utext="${agat2Users.entry_date}"/>
+        <td class="td td2">
+            <button class="btn-del"><a href="delete_agat2Users/{{username}}">Delete</a></button>
+        </td>
+    </tr>
+
+
+</table>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".move").hide();
+        $(".myak").click(function () {
+            $(".move").slideToggle();
+        });
+
+        $(".find-move").hide();
+        $(".find").click(function () {
+            $(".find-move").slideToggle();
+        });
+    });
+</script>
+</body>
+</html>

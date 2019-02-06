@@ -1,0 +1,79 @@
+
+<html>
+<head>
+
+    <!--<link href="/templates/jreco.css" rel="stylesheet">-->
+
+    <style media="all" >
+           body {
+               background: antiquewhite;
+               margin: 30px 0px 100px 100px;
+               font-size: 20px;
+           }
+
+            a {
+                text-decoration: none;
+                color: white;
+            }
+            a:hover {
+                color: #151CFF;
+            }
+            .table, .td1, .td {
+                border: 1px solid black;
+            }
+
+            .table {
+                width: 80%;
+                border-collapse: collapse;
+
+            }
+           tr:nth-child(even) {background-color: #f2f2f2;}
+           td {
+               text-align: center;
+           }
+            .btn-del {
+                border: 1px solid #800000;
+                background: #A80000;
+            }
+            .td2 {
+                width: 30px;
+            }
+    </style>
+</head>
+<body>
+<div>
+    <form method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <input type="text" name="ID" placeholder="Введите PASSPORT_ID" />
+        <input type="text" name="NAME" placeholder="Введите ИМЯ" />
+        <input type="text" name="SURNAME" placeholder="Введите ФАМИЛИЮ"  />
+        <input type="text" name="PHONE_NUMBER" placeholder="Введите ТЕЛЕФОН"  />
+        <input type="text" name="WORK_ID" placeholder="Введите WORK_ID"  />
+        <input type="text" name="GENDER_ID" placeholder="Введите ПОЛ"  />
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+    <a href="opa.html">GO</a>
+    <form method="post" action="filter">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <input type="text" name="filter">
+        <button type="submit">Найти</button>
+    </form>
+
+        <table class="table">
+            {{#personAdd}}
+                <tr>
+                    <td class="td1">{{PASSPORT_ID}}</td>
+                    <td class="td">{{name}}</td>
+                    <td class="td">{{surname}}</td>
+                    <td class="td">{{phone}}</td>
+                    <td class="td">{{WORK_ID}}</td>
+                    <td class="td">{{gender.NAME}}</td>
+                    <td class="td td2" ><button
+                            class="btn-del"><a href="delete_person/{{PASSPORT_ID}}">Delete</a></button></td>
+                </tr>
+            {{/personAdd}}
+        </table>
+
+</body>
+</html>
