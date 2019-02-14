@@ -1,14 +1,14 @@
-package com.agat.test.domain;
+    package com.agat.test.domain;
 
-import org.springframework.security.core.GrantedAuthority;
+    import org.springframework.security.core.GrantedAuthority;
 
-public enum Role implements GrantedAuthority {
-    USER, ADMIN;
+    public enum Role implements GrantedAuthority {
+        USER, ADMIN;
 
-    @Override
-    public String getAuthority() {
-//        return null;
-//        делаем name, будет являться строковым представлением значения USER
-        return name();
+        @Override
+        public String getAuthority() {
+    //        return null;
+    //        делаем name, будет являться строковым представлением значения USER
+            return name();
+        }
     }
-}

@@ -1,3 +1,4 @@
+/*
 package com.agat.test.domain;
 
 
@@ -22,7 +23,7 @@ public class Agat {
 
     public Agat() {
     }
-    
+
     public Agat(Integer PASSPORT_ID, String name, String surname, Integer phone,
                 Integer WORK_ID, Gender gender) {
         this.PASSPORT_ID = PASSPORT_ID;
@@ -77,3 +78,4 @@ public class Agat {
         this.WORK_ID = WORK_ID;
     }
 }
+*/

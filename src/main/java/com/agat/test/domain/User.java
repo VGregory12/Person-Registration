@@ -6,10 +6,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table( name = "USR")
+@Table( name = "USR", schema = "AGATMIN")
 
 public class User implements UserDetails {
     @Id
@@ -21,6 +22,10 @@ public class User implements UserDetails {
     private String password;
 //    @Column(name = "ACTIVE")
     private boolean active;
+
+    private Date entry_date;
+//
+
 
 //    public User (){
 //    }
@@ -104,5 +109,11 @@ public class User implements UserDetails {
         this.roles = roles;
     }
 
+    public Date getEntry_date() {
+        return entry_date;
+    }
 
+    public void setEntry_date(Date entry_date) {
+        this.entry_date = entry_date;
+    }
 }

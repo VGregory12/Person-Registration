@@ -126,7 +126,7 @@
         <td class="td1" th:utext="${agat2Users.user_id}"/>
         <td class="td" th:utext="${agat2Users.entry_date}"/>
         <td class="td td2">
-            <button class="btn-del"><a href="delete_agat2Users/{{username}}">Delete</a></button>
+            <button class="btn-del"><a th:href="@{|delete_agat2Users/${agat2Users.username}|}">Delete</a></button>
         </td>
     </tr>
 
