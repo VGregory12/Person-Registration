@@ -1,4 +1,3 @@
-/*
 package com.agat.test.domain;
 
 
@@ -78,4 +77,3 @@ public class Agat {
         this.WORK_ID = WORK_ID;
     }
 }
-*/
