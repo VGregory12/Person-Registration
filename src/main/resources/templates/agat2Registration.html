@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<div>
+    <form class="find-move" method="post" th:action="@{/agat2Registration}">
+        <input type='hidden' value='${_csrf.token}' name='${_csrf.parameterName}'/>
+        <div><input type="text" name="SURNAME" placeholder="Введите фамилию"/></div>
+        <div><input type="text" name="NAME" placeholder="Введите имя"/></div>
+        <div><input type="text" name="PATRONYMIC" placeholder="Введите отчество"/></div>
+        <div><input type="date" name="BIRTHDAY" placeholder="Введите дату рождения"/></div>
+        <div><input type="text" name="IDENTIFIER" placeholder="Введите идентификатор"/></div>
+        <div><input type="text" name="DOC_NUMBER" placeholder="Введите номер документа"/></div>
+        <div><input type="text" name="DOC_TYPE" placeholder="Введите тип документа"/></div>
+        <div><input type="date" name="DATE_RECEIVING" placeholder="Введите дату выдачи"/></div>
+        <div><input type="text" name="LOCALITY" placeholder="Введите Населенный пункт"/></div>
+        <div><input type="text" name="STREET" placeholder="Введите улицу"/></div>
+        <div><input type="text" name="HOUSE" placeholder="Введите дом"/></div>
+        <div><input type="text" name="BODY" placeholder="Введите корус"/></div>
+        <div><input type="text" name="APARTMENT" placeholder="Введите квартиру"/></div>
+        <div>
+            <button class="btn-add" type="submit">Добавить</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+<!--<table class="table">-->
+    <!--<tr>-->
+        <!--<th>User name</th>-->
+        <!--<th>User id</th>-->
+        <!--<th>Entry date</th>-->
+
+    <!--</tr>-->
+
+    <!--<tr th:each="agat2Users : ${agat2UsersTable}">-->
+        <!--<td class="td1" th:utext="${agat2Users.username}"/>-->
+        <!--<td class="td1" th:utext="${agat2Users.user_id}"/>-->
+        <!--<td class="td" th:utext="${agat2Users.entry_date}"/>-->
+    <!--</tr>-->
+    <!--<tr th:each="agat2Person : ${agat2PersonTable}">-->
+        <!--<td class="td1" th:utext="${agat2Person.id}"/>-->
+        <!--<td class="td1" th:utext="${agat2Person.pid}"/>-->
+        <!--<td class="td1" th:utext="${agat2Person.name}"/>-->
+        <!--<td class="td1" th:utext="${agat2Person.patronymic}"/>-->
+        <!--<td class="td1" th:utext="${agat2Person.birthday}"/>-->
+        <!--<td class="td1" th:utext="${agat2Person.cause_death}"/>-->
+        <!--<td class="td1" th:utext="${agat2Person.date_death}"/>-->
+        <!--<td class="td1" th:utext="${agat2Person.date_enter}"/>-->
+        <!--<td class="td1" th:utext="${agat2Person.user_id}"/>-->
+        <!--<td class="td1" th:utext="${agat2Person.identifier}"/>-->
+    <!--</tr>-->
+
+<!--</table>-->
+
+</body>
+</html>

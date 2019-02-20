@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<table class="table">
+
+
+    <div th:each="agat2Search : ${agat2SearchTable}">
+        <p th:each="agat2Address : ${agat2Search.agat2Address}">
+        <tr th:each="agat2Document : ${agat2Search.agat2Document}">
+            <td class="td1" th:utext="${agat2Search.pid}"/>
+            <td class="td1" th:utext="${agat2Search.user_id}"/>
+            <td class="td" th:utext="${agat2Search.entry_date}"/>
+            <td class="td" th:utext="${agat2Search.agat2Person?.name}"/>
+            <td class="td" th:utext="${agat2Document?.doc_type}"/>
+            <td class="td" th:utext="${agat2Address?.street}"/>
+
+
+
+        </tr>
+        </p>
+        <!--<td th:each="agat2Document : ${agat2Search.agat2Document}">-->
+            <!--<span th:text="${agat2Document?.doc_type}" />-->
+        <!--</td>-->
+        <!--<td class="td" th:utext="${agat2Search.agat2Document[0].id}"/>-->
+
+
+
+
+
+    </div>
+
+
+</table>
+</body>
+</html>

@@ -1,6 +1,8 @@
 package com.agat.test.controller;
 
 import com.agat.test.domain.*;
+
+import com.agat.test.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -54,6 +56,11 @@ public class GreetingController {
     @Autowired
     private com.agat.test.repos.Agat2UsersRepo Agat2UsersRepo;
 
+    @Autowired
+    private UserRepo userRepo;
+
+
+
     @GetMapping("/")
     public String greeting(Map<String, Object> model) {
         return "greeting.html";
@@ -75,7 +82,10 @@ public class GreetingController {
 
 
     @GetMapping("/main3")
-    public String main3(Map<String, Object> model) {
+    public String main3(@AuthenticationPrincipal User user, Model model) {
+        model.addAttribute("roles", Role.values());
+        model.addAttribute("user", user);
+        model.addAttribute("length", user.getRoles().size()-1);
         return "main3";
     }
 
@@ -202,7 +212,7 @@ public class GreetingController {
 
         Iterable<Agat2Person> agat2PersonTable;
         if(filterAgat2PersonFilter != null && !filterAgat2PersonFilter.isEmpty()){
-            agat2PersonTable = Agat2PersonFilter.findBySurname(filterAgat2PersonFilter);
+            agat2PersonTable = Agat2PersonFilter.findByNameLike(filterAgat2PersonFilter + "%");
             model.put("agat2PersonTable", agat2PersonTable);
             return "agat2Person";
         } else {
@@ -454,4 +464,20 @@ public class GreetingController {
 
         return "agat2Registration.html";
     }
+
+
+                                     //// SEARCH////////
+
+
+
+    @GetMapping("/agat2Search")
+    public String agat2Search(Map<String, Object> model) {
+        Iterable<Agat2IdPerson> agat2SearchTable = Agat2IdPersonRepo.findAll();
+        model.put("agat2SearchTable", agat2SearchTable);
+        return "agat2Search";
+    }
+
+
+
+
 }

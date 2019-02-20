@@ -68,6 +68,11 @@ public class Agat2Person {
     }
 
 
+    @OneToOne
+    @JoinColumn(name = "PID", insertable = false, updatable = false)
+    private Agat2IdPerson agat2IdPerson;
+
+
 
     public Integer getId() {
         return id;

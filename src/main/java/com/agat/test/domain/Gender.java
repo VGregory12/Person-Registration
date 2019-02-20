@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "GENDER", schema = "AGATMIN")
+@Table(name = "GENDER", schema = "AGAT")
 public class Gender {
     @Id
     @Column(name = "GENDER_ID")

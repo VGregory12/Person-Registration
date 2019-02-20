@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style media="all">
+        body {
+            background: black;
+        }
+
+        .set-block {
+            width: 400px;
+            height: 420px;
+            background: aliceblue;
+            margin-left: 35%;
+            margin-top: 150px;
+            border-radius: 10px;
+        }
+
+        .set-table {
+            padding-top: 40px;
+            font-size: 30px;
+            text-align: center;
+            color: black;
+            margin-bottom: 40px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            font-size: 22px;
+        }
+
+        .tables {
+
+            margin: 0px 0px 10px 30px;
+
+        }
+        </style>
+        </head>
+<body>
+<div>
+    <form th:action="@{/logout}" method="post">
+        <input type='hidden' value='${_csrf.token}' name='${_csrf.parameterName}'/>
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
+<div class="set-block">
+    <div class="set-table">МЕНЮ:</div>
+    <div class="tables info">
+        <a href="agat2Registration.html">РЕГИСТРАЦИЯ</a>
+    </div>
+    <div class="tables info">
+        <a href="agat2Search.html">ПОИСК</a>
+    </div>
+    <p th:text="${length}"/>
+
+    <p th:text="${length} ? 'red21' : 'yyyer'"/>
+
+    <div th:switch="${length}">
+        <p th:case="'1'">ddddddd
+        </p>
+        <p th:case="'0'">ffff</p>
+    </div>
+
+    <!--<span th:if="(${length} == 2)"  th:text="dssdfgsgf"></span>-->
+
+    <!--<span th:if="(${length} == 1)"  th:text="opaaaaaaaa"></span>-->
+
+    <div class="tables info">
+        <a href="/user" th:text="'${length}' ? 'ПАНЕЛЬ АДМИНИСТРАТОРА' : ''"/>
+    </div>
+    <div class="tables info">
+        <a href="/main2">РАБОТА С ТАБЛИЦАМИ</a>
+    </div>
+
+</div>
+
+</body>
+</html>

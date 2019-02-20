@@ -5,7 +5,7 @@ import javax.persistence.*;
 import javax.print.attribute.standard.MediaSize;
 
 @Entity
-@Table(name = "PERSON", schema = "AGATMIN")
+@Table(name = "PERSON", schema = "AGAT")
 public class Agat {
 
     @Id
