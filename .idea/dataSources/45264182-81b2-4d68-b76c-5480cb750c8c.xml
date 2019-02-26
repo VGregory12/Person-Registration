@@ -10,8 +10,8 @@
     <schema id="3" parent="1" name="AGATMIN">
       <ObjectId>93</ObjectId>
       <CreatedTimestamp>2019-01-02.04:14:58</CreatedTimestamp>
-      <ModifiedTimestamp>2019-02-14.02:49:53</ModifiedTimestamp>
-      <IntrospectionTimestamp>2019-02-14.02:50:42</IntrospectionTimestamp>
+      <ModifiedTimestamp>2019-02-24.03:20:00</ModifiedTimestamp>
+      <IntrospectionTimestamp>2019-02-25.15:29:35</IntrospectionTimestamp>
       <Visible>1</Visible>
     </schema>
     <schema id="4" parent="1" name="ANONYMOUS">
@@ -169,9 +169,9 @@
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="49" parent="3" name="USR">
-      <ObjectId>76070</ObjectId>
-      <CreatedTimestamp>2019-02-14.02:49:53</CreatedTimestamp>
-      <ModifiedTimestamp>2019-02-14.02:49:53</ModifiedTimestamp>
+      <ObjectId>76279</ObjectId>
+      <CreatedTimestamp>2019-02-24.03:20:00</CreatedTimestamp>
+      <ModifiedTimestamp>2019-02-24.03:20:00</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <column id="50" parent="43" name="ID">
@@ -462,7 +462,7 @@
     </key>
     <column id="100" parent="49" name="ID">
       <Position>1</Position>
-      <DataType>NUMBER(19 digit)|0s</DataType>
+      <DataType>NUMBER(10 digit)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="101" parent="49" name="ACTIVE">
@@ -482,21 +482,21 @@
       <Position>5</Position>
       <DataType>VARCHAR2(255 char)|0us</DataType>
     </column>
-    <index id="105" parent="49" name="SYS_C0012187">
-      <ObjectId>76071</ObjectId>
+    <index id="105" parent="49" name="SYS_C0012344">
+      <ObjectId>76280</ObjectId>
       <NameSurrogate>1</NameSurrogate>
-      <CreatedTimestamp>2019-02-14.02:49:53</CreatedTimestamp>
-      <ModifiedTimestamp>2019-02-14.02:49:53</ModifiedTimestamp>
+      <CreatedTimestamp>2019-02-24.03:20:00</CreatedTimestamp>
+      <ModifiedTimestamp>2019-02-24.03:20:00</ModifiedTimestamp>
       <TablespaceName>USERS</TablespaceName>
       <ColNames>ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="106" parent="49" name="SYS_C0012187">
+    <key id="106" parent="49" name="SYS_C0012344">
       <NameSurrogate>1</NameSurrogate>
-      <ModifiedTimestamp>2019-02-14.02:49:53</ModifiedTimestamp>
+      <ModifiedTimestamp>2019-02-24.03:20:00</ModifiedTimestamp>
       <ColNames>ID</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
-      <UnderlyingIndexName>SYS_C0012187</UnderlyingIndexName>
+      <UnderlyingIndexName>SYS_C0012344</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
   </database-model>

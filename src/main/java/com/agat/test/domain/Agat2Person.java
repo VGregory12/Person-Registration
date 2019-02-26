@@ -32,14 +32,14 @@ public class Agat2Person {
     @Column(name = "USER_ID")
     private Integer user_id;
     @Column(name = "IDENTIFIER")
-    private Integer identifier;
+    private String identifier;
 
     public Agat2Person() {
     }
 
     public Agat2Person(Integer pid, String surname, String name, String patronymic,
                        Date birthday, String cause_death, Date date_death,
-                       Date date_enter, Integer user_id, Integer identifier) {
+                       Date date_enter, Integer user_id, String identifier) {
 
         this.pid = pid;
         this.name = name;
@@ -55,7 +55,7 @@ public class Agat2Person {
 
     public Agat2Person(Integer pid, String surname, String name, String patronymic,
                        Date birthday,
-                       Date date_enter, Integer user_id, Integer identifier) {
+                       Date date_enter, Integer user_id, String identifier) {
 
         this.pid = pid;
         this.name = name;
@@ -110,7 +110,7 @@ public class Agat2Person {
         return user_id;
     }
 
-    public Integer getIdentifier() {
+    public String getIdentifier() {
         return identifier;
     }
 
@@ -159,7 +159,7 @@ public class Agat2Person {
         this.user_id = user_id;
     }
 
-    public void setIdentifier(Integer identifier) {
+    public void setIdentifier(String identifier) {
         this.identifier = identifier;
     }
 }

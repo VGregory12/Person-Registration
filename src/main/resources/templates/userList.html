@@ -2,31 +2,28 @@
 <html xmlns:th="http://www.springframework.org/schema/data/jaxb">
 <head>
     <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/static/userList.css">
+
 </head>
 <body>
-    <div>
-        <a href="/main3">Назад</a>
-    </div>
-    List of Users
-    <table>
-
-
-        <tr>
-            <th>Name</th>
-            <th>Role</th>
-            <th></th>
-        </tr>
-
-
-            <tr th:each="user : ${users}">
-                <td th:utext="${user.username}"/>
-                <td th:each="role : ${user.roles}">
-                    <span th:text="${role}"/>
-                </td>
-                <td><a th:href="@{|/user/${user.id}|}">edit</a></td>
-            </tr>
-
-    </table>
+<div>
+    <a href="/main3">Назад</a>
+</div>
+List of Users
+<table class="table">
+    <tr>
+        <th class="th">Name</th>
+        <th class="th">Role</th>
+        <th class="th1"></th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td class="th" th:utext="${user.username}"/>
+        <td class="th">
+            <span th:each="role : ${user.roles}" th:text="${role}+' '"/>
+        </td>
+        <td class="th1"><a th:href="@{|/user/${user.id}|}">edit</a></td>
+    </tr>
+</table>
 </body>
 </html>

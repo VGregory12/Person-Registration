@@ -4,7 +4,9 @@ import com.agat.test.domain.*;
 
 import com.agat.test.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,10 +14,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 
 @Controller
 public class GreetingController {
@@ -57,8 +64,14 @@ public class GreetingController {
     private com.agat.test.repos.Agat2UsersRepo Agat2UsersRepo;
 
     @Autowired
-    private UserRepo userRepo;
+    private com.agat.test.repos.Agat2SearchFilter Agat2SearchFilter;
 
+    @Autowired
+    private com.agat.test.repos.UserRepo UserRepo;
+
+
+    @Value("${upload.path}")
+    private String uploadPath;
 
 
     @GetMapping("/")
@@ -74,6 +87,7 @@ public class GreetingController {
 
 
     @GetMapping("/main2")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String main2(Map<String, Object> model) {
         return "main2";
     }
@@ -86,6 +100,7 @@ public class GreetingController {
         model.addAttribute("roles", Role.values());
         model.addAttribute("user", user);
         model.addAttribute("length", user.getRoles().size()-1);
+        model.addAttribute("isAdmin", user.isAdmin());
         return "main3";
     }
 
@@ -101,11 +116,9 @@ public class GreetingController {
 
     @GetMapping("/main")
     public String main(@AuthenticationPrincipal User user, Map<String, Object> model) {
-//        new IdPerson(pid, asdsd, user.userId);
-//        new addres(...., user.userId);
         Iterable<Message> messages = MessageRepo.findAll();
         model.put("messages", messages);
-        return "main";
+        return "main.html";
     }
 
     @PostMapping("/main")
@@ -113,12 +126,29 @@ public class GreetingController {
             @AuthenticationPrincipal User user,
             @RequestParam String text,
             @RequestParam String tag,
-            Map<String, Object> model){
+            Map<String, Object> model,
+            @RequestParam("file") MultipartFile file
+    ) throws IOException {
         Message message = new Message(text, tag, user);
+
+        if (file != null && !file.getOriginalFilename().isEmpty()) {
+            File uploadDir = new File(uploadPath);
+
+            if (!uploadDir.exists()) {
+                uploadDir.mkdir();
+            }
+
+            String uuidFile = UUID.randomUUID().toString();
+            String resultFilename = uuidFile + "." + file.getOriginalFilename();
+
+            file.transferTo(new File(uploadPath + "/" + resultFilename));
+
+            message.setFilename(resultFilename);
+        }
         MessageRepo.save(message);
         Iterable<Message> messages = MessageRepo.findAll();
         model.put("messages", messages);
-        return "main";
+        return "main.html";
     }
 
     @GetMapping("/agat")
@@ -180,6 +210,7 @@ public class GreetingController {
 
           /////////////////PERSON////////////////
     @GetMapping("/agat2Person")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String agat2Person (Map<String, Object> model) {
         Iterable<Agat2Person> agat2PersonTable = Agat2PersonRepo.findAll();
         model.put("agat2PersonTable", agat2PersonTable);
@@ -187,10 +218,11 @@ public class GreetingController {
     }
 
     @PostMapping("/agat2Person")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String add(@RequestParam Integer ID, @RequestParam Integer PID, @RequestParam String SURNAME, @RequestParam String NAME, @RequestParam String PATRONYMIC,
                       @RequestParam @DateTimeFormat(pattern="yyyy-MM-dd") Date BIRTHDAY, @RequestParam  String CAUSE_DEATH, @RequestParam  @DateTimeFormat(pattern="yyyy-MM-dd") Date DATE_DEATH,
                       @RequestParam  @DateTimeFormat(pattern="yyyy-MM-dd") Date DATE_ENTER,
-                      @RequestParam Integer USER_ID, @RequestParam Integer IDENTIFIER,
+                      @RequestParam Integer USER_ID, @RequestParam String IDENTIFIER,
                       Map<String, Object> model){
 //        Optional<Gender> gender = GenderRepo.findById(GENDER_ID);
 //
@@ -202,12 +234,14 @@ public class GreetingController {
     }
 
     @GetMapping("/delete_agat2Person/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String deletePerson(@PathVariable Integer id){
         Agat2PersonRepo.deleteById(id);
         return "redirect:/agat2Person";
     }
 
     @PostMapping("filterAgat2Person")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String filterAgat2Person(@RequestParam String filterAgat2PersonFilter, Map<String, Object> model){
 
         Iterable<Agat2Person> agat2PersonTable;
@@ -372,42 +406,41 @@ public class GreetingController {
 
 
     @GetMapping("/agat2Users")
-    public String agat2Users(@RequestParam(required = false, defaultValue = "") String filterAgat2UsersFilter, Model model) {
-        Iterable<Agat2Users> agat2UsersTable = Agat2UsersRepo.findAll();
-
-        if(filterAgat2UsersFilter != null && !filterAgat2UsersFilter.isEmpty()){
-            agat2UsersTable = Agat2UsersRepo.findByUsername(filterAgat2UsersFilter);
-
-        } else {
-            agat2UsersTable = Agat2UsersRepo.findAll();
-
-        }
-        model.addAttribute("agat2UsersTable", agat2UsersTable);
-        model.addAttribute("filterAgat2UsersFilter", filterAgat2UsersFilter);
+    public String User(@RequestParam(required = false, defaultValue = "") String filterAgat2UsersFilter, Model model) {
+        Iterable<User> UserTable = UserRepo.findAll();
+//
+//        if(filterAgat2UsersFilter != null && !filterAgat2UsersFilter.isEmpty()){
+//            UserTable = UserRepo.findByUsername(filterAgat2UsersFilter);
+//
+//        } else {
+//            UserTable = UserRepo.findAll();
+//
+//        }
+        model.addAttribute("UserTable", UserTable);
+//        model.addAttribute("filterAgat2UsersFilter", filterAgat2UsersFilter);
 
         return "agat2Users.html";
     }
 
 
+//    @PostMapping("/agat2Users")
+//    public String add(@RequestParam String USER_NAME,
+//                      @RequestParam Integer USER_ID,
+//                      @RequestParam @DateTimeFormat(pattern="yyyy-MM-dd") Date ENTRY_DATE,
+//                      Map<String, Object> model){
+//
+//        Agat2Users agat2Users = new Agat2Users(USER_NAME, USER_ID, ENTRY_DATE);
+//        Agat2UsersRepo.save(agat2Users);
+//        Iterable<Agat2Users> agat2UsersTable = Agat2UsersRepo.findAll();
+//        model.put("agat2UsersTable", agat2UsersTable);
+//        return "agat2Users.html";
+//    }
 
-    @PostMapping("/agat2Users")
-    public String add(@RequestParam String USER_NAME,
-                      @RequestParam Integer USER_ID,
-                      @RequestParam @DateTimeFormat(pattern="yyyy-MM-dd") Date ENTRY_DATE,
-                      Map<String, Object> model){
-
-        Agat2Users agat2Users = new Agat2Users(USER_NAME, USER_ID, ENTRY_DATE);
-        Agat2UsersRepo.save(agat2Users);
-        Iterable<Agat2Users> agat2UsersTable = Agat2UsersRepo.findAll();
-        model.put("agat2UsersTable", agat2UsersTable);
-        return "agat2Users.html";
-    }
-
-    @GetMapping("/delete_agat2Users/{user_name}")
-    public String deleteAgat2Users(@PathVariable String user_name){
-        Agat2UsersRepo.deleteById(user_name);
-        return "redirect:/agat2Users";
-    }
+//    @GetMapping("/delete_agat2Users/{user_name}")
+//    public String deleteAgat2Users(@PathVariable String user_name){
+//        Agat2UsersRepo.deleteById(user_name);
+//        return "redirect:/agat2Users";
+//    }
 
 //    @PostMapping("filterAgat2Users")
 //    public String filterAgat2Users(@RequestParam String filterAgat2UsersFilter, Map<String, Object> model){
@@ -441,10 +474,11 @@ public class GreetingController {
                        @RequestParam String NAME,
                        @RequestParam String PATRONYMIC,
                        @RequestParam @DateTimeFormat(pattern="yyyy-MM-dd") Date BIRTHDAY,
-                       @RequestParam Integer IDENTIFIER,
+                       @RequestParam String IDENTIFIER,
                        @RequestParam Integer DOC_NUMBER,
                        @RequestParam String DOC_TYPE,
                        @RequestParam @DateTimeFormat(pattern="yyyy-MM-dd") Date DATE_RECEIVING,
+                       @RequestParam Integer TYPE_ADDRESS_ID,
                        @RequestParam String LOCALITY,
                        @RequestParam String STREET,
                        @RequestParam Integer HOUSE,
@@ -459,7 +493,8 @@ public class GreetingController {
         Agat2PersonRepo.save(agat2Person);
         Agat2Document agat2Document = new Agat2Document(agat2IdPerson.getPid(), DOC_NUMBER, DOC_TYPE, DATE_RECEIVING, new Date(System.currentTimeMillis()), user.getId());
         Agat2DocumentRepo.save(agat2Document);
-        Agat2Address agat2Address = new Agat2Address(agat2IdPerson.getPid(), LOCALITY, STREET, HOUSE, BODY, APARTMENT);
+        Optional<Agat2TypeAddress> agat2TypeAddress = Agat2TypeAddressRepo.findById(TYPE_ADDRESS_ID);
+        Agat2Address agat2Address = new Agat2Address(agat2IdPerson.getPid(), TYPE_ADDRESS_ID, LOCALITY, STREET, HOUSE, BODY, APARTMENT, agat2TypeAddress.get());
         Agat2AddressRepo.save(agat2Address);
 
         return "agat2Registration.html";
@@ -477,6 +512,20 @@ public class GreetingController {
         return "agat2Search";
     }
 
+    @PostMapping("filterAgat2Search")
+    public String filterAgat2Search(@RequestParam String filterAgat2SearchFilter, Map<String, Object> model){
+
+        Iterable<Agat2IdPerson> agat2SearchTable;
+        if(filterAgat2SearchFilter != null && !filterAgat2SearchFilter.isEmpty()){
+            agat2SearchTable = Agat2SearchFilter.findByAgat2PersonSurnameLikeOrAgat2PersonNameLike(filterAgat2SearchFilter + "%", filterAgat2SearchFilter + "%");
+            model.put("agat2SearchTable", agat2SearchTable);
+            return "agat2Search";
+        } else {
+            agat2SearchTable = Agat2SearchFilter.findAll();
+            model.put("agat2SearchTable", agat2SearchTable);
+            return "redirect:/agat2Search";
+        }
+    }
 
 
 

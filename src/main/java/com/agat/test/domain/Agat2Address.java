@@ -47,7 +47,7 @@ public class Agat2Address {
 
     public Agat2Address (Integer pid, String locality,
                          String street, Integer house, Integer body,
-                         Integer apartment) {
+                         Integer apartment, Agat2TypeAddress agat2TypeAddress) {
 
         this.pid = pid;
         this.apartment = apartment;
@@ -56,11 +56,13 @@ public class Agat2Address {
         this.house = house;
         this.body = body;
         this.apartment = apartment;
+        this.agat2TypeAddress = agat2TypeAddress;
     }
 
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn (name = "TYPE_ADDRESS_ID", nullable = false, insertable = false, updatable = false)
     private Agat2TypeAddress agat2TypeAddress;
+
 
     public Integer getId() {
         return id;
@@ -125,4 +127,15 @@ public class Agat2Address {
     public void setApartment(Integer apartment) {
         this.apartment = apartment;
     }
+
+    public Agat2TypeAddress getAgat2TypeAddress() {
+        return agat2TypeAddress;
+    }
+
+    public void setAgat2TypeAddress(Agat2TypeAddress agat2TypeAddress) {
+        this.agat2TypeAddress = agat2TypeAddress;
+    }
+
 }
+
+

@@ -39,7 +39,7 @@ public class Agat2IdPerson {
     ) {
         this.entry_date = entry_date;
         this.user_id = user_id;
-        this.agat2Person = agat2Person;
+//        this.agat2Person = agat2Person;
         this.agat2Document = agat2Document;
         this.agat2Address = agat2Address;
     }
@@ -57,17 +57,9 @@ public class Agat2IdPerson {
     @JoinColumn(name = "PID", nullable = false, insertable = false, updatable = false)
     private Set<Agat2Address> agat2Address;
 
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @PrimaryKeyJoinColumn
-//    private Agat2Person agat2Person;
 
-//    @OneToOne( mappedBy = "PID")
-//    @JoinColumn(name = "PID", nullable = false)
-//    private Agat2Person agat2Person;
 
-//    @OneToOne (fetch = FetchType.LAZY)
-//    @JoinColumn(name = "PID", nullable = false)
-//    private Agat2Address agat2Address;
+
 
         public Integer getPid() {
                 return pid;
