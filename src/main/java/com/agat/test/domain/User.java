@@ -9,12 +9,15 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
 
+
 @Entity
 @Table( name = "USR", schema = "AGATMIN")
 
 public class User implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "mySeqGen", sequenceName = "dbsequence",initialValue = 3000, allocationSize = 25)
+    @GeneratedValue(generator = "mySeqGen")
     private Integer id;
 //    @Column(name = "USERNAME")
     private String username;
