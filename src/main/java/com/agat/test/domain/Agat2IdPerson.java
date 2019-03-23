@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class Agat2IdPerson {
         @Id
-        @GeneratedValue(strategy= GenerationType.AUTO)
+//        @GeneratedValue(strategy= GenerationType.AUTO)
         @Column(name = "PID")
         private Integer pid;
         @Column(name = "ENTRY_DATE")
@@ -31,6 +31,15 @@ public class Agat2IdPerson {
 //        this.agat2Address = agat2Address;
     }
 
+    public Agat2IdPerson ( Integer pid, Date entry_date, Integer user_id
+//            , Agat2Address agat2Address
+    ) {
+        this.pid = pid;
+        this.entry_date = entry_date;
+        this.user_id = user_id;
+//        this.agat2Address = agat2Address;
+    }
+
     public Agat2IdPerson (Date entry_date, Integer user_id
                           ,Agat2Person agat2Person,
                           Set<Agat2Document> agat2Document,
@@ -44,16 +53,30 @@ public class Agat2IdPerson {
         this.agat2Address = agat2Address;
     }
 
+    public Agat2IdPerson (Integer pid, Date entry_date, Integer user_id
+            ,Agat2Person agat2Person,
+                          Set<Agat2Document> agat2Document,
+                          Set<Agat2Address> agat2Address
+
+    ) {
+        this.pid = pid;
+        this.entry_date = entry_date;
+        this.user_id = user_id;
+//        this.agat2Person = agat2Person;
+        this.agat2Document = agat2Document;
+        this.agat2Address = agat2Address;
+    }
+
     @OneToOne(mappedBy = "agat2IdPerson", cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "PID", nullable = false)
     private Agat2Person agat2Person;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "PID", nullable = false, insertable = false, updatable = false)
     private Set<Agat2Document> agat2Document;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "PID", nullable = false, insertable = false, updatable = false)
     private Set<Agat2Address> agat2Address;
 

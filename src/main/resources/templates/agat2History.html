@@ -21,27 +21,51 @@
 <table class="table">
     <tr class="table-header">
         <th class="th">PID</th>
+        <th class="th">АКТИВ</th>
         <th class="th">ФАМИЛИЯ</th>
-        <!--<th class="th">ИМЯ</th>-->
-        <!--<th class="th">ОТЧЕСТВО</th>-->
-        <!--<th class="th">ДАТА РОЖДЕНИЯ</th>-->
-        <!--<th class="th">ИДЕНТИФИКАТОР</th>-->
-        <!--<th class="th">НОМЕР ДОКУМЕНТА</th>-->
-        <!--<th class="th">ТИП ДОКУМЕНТА</th>-->
-        <!--<th class="th">ДАТА ВЫДАЧИ</th>-->
-        <!--<th class="th">ТИП АДРЕСА</th>-->
-        <!--<th class="th">НАСЕЛЕННЫЙ ПУНКТ</th>-->
-        <!--<th class="th">УЛИЦА</th>-->
-        <!--<th class="th">ДОМ</th>-->
-        <!--<th class="th">КОРПУС</th>-->
-        <!--<th class="th">КВАРТИРА</th>-->
+        <th class="th">ИМЯ</th>
+        <th class="th">ОТЧЕСТВО</th>
+        <th class="th">ДАТА РОЖДЕНИЯ</th>
+        <th class="th">ИДЕН-ТОР</th>
+        <th class="th">НОМЕР ДОКУМЕНТА</th>
+        <th class="th">ТИП ДОКУМЕНТА</th>
+        <th class="th">ДАТА ВЫДАЧИ</th>
+        <th class="th">ТИП АДРЕСА</th>
+        <th class="th">НАСЕЛЕННЫЙ ПУНКТ</th>
+        <th class="th">УЛИЦА</th>
+        <th class="th">ДОМ</th>
+        <th class="th">КОРПУС</th>
+        <th class="th">КВАРТИРА</th>
+        <th class="th">ДАТА ДОБАВЛЕНИЯ</th>
+        <th class="th">ПОЛ-ЛЬ</th>
+
+
+
+
     </tr>
 
     <div  th:each="agat2History : ${agat2HistoryTable}">
 
         <tr class="table-div" >
             <td class="td" th:utext="${agat2History.pid}"/>
+            <td class="td" th:utext="${agat2History?.active}"/>
             <td class="td" th:utext="${agat2History.surname}"/>
+            <td class="td" th:utext="${agat2History.name}"/>
+            <td class="td" th:utext="${agat2History.patronymic}"/>
+            <td class="td" th:utext="${agat2History.birthday}"/>
+            <td class="td" th:utext="${agat2History.identifier}"/>
+            <td class="td" th:utext="${agat2History.doc_number}"/>
+            <td class="td" th:utext="${agat2History.doc_type}"/>
+            <td class="td" th:utext="${agat2History.date_receiving}"/>
+            <td class="td" th:utext="${agat2History.type_address_id}"/>
+            <td class="td" th:utext="${agat2History.locality}"/>
+            <td class="td" th:utext="${agat2History.street}"/>
+            <td class="td" th:utext="${agat2History.house}"/>
+            <td class="td" th:utext="${agat2History.body}"/>
+            <td class="td" th:utext="${agat2History.apartment}"/>
+            <td class="td" th:utext="${agat2History.entry_date}"/>
+            <td class="td" th:utext="${agat2History?.user_id}"/>
+
             <!--<td class="td" th:utext="${agat2Search.agat2Person?.name}"/>-->
             <!--<td class="td" th:utext="${agat2Search.agat2Person?.patronymic}"/>-->
             <!--<td class="td" th:utext="${agat2Search.agat2Person?.birthday}"/>-->

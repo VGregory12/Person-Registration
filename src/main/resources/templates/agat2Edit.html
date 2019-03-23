@@ -8,35 +8,40 @@
 </head>
 <body>
 
+<script type="text/javascript">
+   var a = 12;
+</script>
+
 <div class="header">
     <a class="btn-back" href="/main3"><<</a>
     <h2 class="h2-reg">Регистрация</h2>
 </div>
 
 <div class="form-section">
-    <form class="form" method="post" th:action="@{/agat2Registration}">
+    <form class="form" method="post" th:action="@{|/agat2Edit/${pid}|}">
         <div class="form-divs">
             <div class="div-item">
                 <input type='hidden' value='${_csrf.token}' name='${_csrf.parameterName}'/>
-                <input type="hidden" th:value="${x}" name="PID"/>
                 <label>Фамилия</label>
-                <div><input class="input-reg" type="text" name="SURNAME" placeholder="Введите фамилию"/></div>
+                <div><input th:value="${agat2IdPerson[0].agat2Person.surname}" class="input-reg" type="text" name="SURNAME" placeholder="Введите фамилию"/></div>
                 <label>Имя</label>
-                <div><input class="input-reg" type="text" name="NAME" placeholder="Введите имя"/></div>
+                <div><input class="input-reg" th:value="${agat2IdPerson[0].agat2Person.name}" type="text" name="NAME" placeholder="Введите имя"/></div>
                 <label>Отчество</label>
-                <div><input class="input-reg" type="text" name="PATRONYMIC" placeholder="Введите отчество"/></div>
+                <div><input class="input-reg" th:value="${agat2IdPerson[0].agat2Person.patronymic}" type="text" name="PATRONYMIC" placeholder="Введите отчество"/></div>
                 <label>Дата рождения</label>
-                <div><input class="input-reg" type="date" name="BIRTHDAY" placeholder="Введите дату рождения"/></div>
+                <div><input class="input-reg" th:value="${agat2IdPerson[0].agat2Person.birthday}" type="text" name="BIRTHDAY" placeholder="Введите дату рождения"/></div>
                 <label>Идентификатор</label>
-                <div><input class="input-reg" type="long" name="IDENTIFIER" placeholder="Введите идентификатор"/></div>
+                <div><input class="input-reg" th:value="${agat2IdPerson[0].agat2Person.identifier}" type="long" name="IDENTIFIER" placeholder="Введите идентификатор"/></div>
             </div>
             <div class="div-item">
                 <label>Номер документа</label>
-                <div><input class="input-reg" type="text" name="DOC_NUMBER" placeholder="Введите номер документа"/>
+                <div><input class="input-reg" th:value="${agat2IdPerson[0].agat2Document[0].doc_number}" type="text" name="DOC_NUMBER" placeholder="Введите номер документа"/>
                 </div>
                 <label>Тип документа</label>
                 <div>
-                    <select class="input-reg" name="DOC_TYPE" required>
+                    <select class="input-reg"  name="DOC_TYPE" required>
+                        <option th:value="${agat2IdPerson[0].agat2Document[0].doc_type}"
+                                th:text="${agat2IdPerson[0].agat2Document[0].doc_type}"/>
                         <option value="ПАСПОРТ">ПАСПОРТ</option>
                         <option value="СОР">СОР</option>
                         <option value="ПЕНСИОННОЕ">ПЕНСИОННОЕ</option>
@@ -45,33 +50,37 @@
                     </select>
                 </div>
                 <label>Дата выдачи</label>
-                <div><input class="input-reg" type="date" name="DATE_RECEIVING" placeholder="Введите дату выдачи"/>
+                <div><input class="input-reg" th:value="${agat2IdPerson[0].agat2Document[0].date_receiving}" type="text" name="DATE_RECEIVING" placeholder="Введите дату выдачи"/>
                 </div>
             </div>
             <div class="div-item">
-                <label>Отчество</label>
+                <label>Тип адреса</label>
+                <!--<div><input class="input-reg"  type="long" name="TYPE_ADDRESS_ID" placeholder="Введите идентификатор"/></div>-->
+
                 <div>
                     <select class="input-reg" name="TYPE_ADDRESS_ID" required>
+                        <option th:value="${agat2IdPerson[0].agat2Address[0].type_address_id}"
+                                th:text="${agat2IdPerson[0].agat2Address[0].agat2TypeAddress?.typeAddress}"/>
                         <option value="1">РЕГИСТРАЦИЯ</option>
                         <option value="2">ПРОЖИВАНИЕ</option>
                         <option value="3">СОВПАДАЕТ</option>
                     </select>
                 </div>
                 <label>Населенный пункт</label>
-                <div><input class="input-reg" type="text" name="LOCALITY" placeholder="Введите Населенный пункт"/></div>
+                <div><input class="input-reg" th:value="${agat2IdPerson[0]?.agat2Address[0]?.locality}" type="text" name="LOCALITY" placeholder="Введите Населенный пункт"/></div>
                 <label>Улица</label>
-                <div><input class="input-reg" type="text" name="STREET" placeholder="Введите улицу"/></div>
+                <div><input class="input-reg" th:value="${agat2IdPerson[0]?.agat2Address[0]?.street}" type="text" name="STREET" placeholder="Введите улицу"/></div>
                 <label>Дом</label>
-                <div><input class="input-reg" type="text" name="HOUSE" placeholder="Введите дом"/></div>
+                <div><input class="input-reg" th:value="${agat2IdPerson[0]?.agat2Address[0]?.house}" type="text" name="HOUSE" placeholder="Введите дом"/></div>
                 <label>Корпус</label>
-                <div><input class="input-reg" type="text" name="BODY" placeholder="Введите корус"/></div>
+                <div><input class="input-reg" th:value="${agat2IdPerson[0]?.agat2Address[0]?.body}" type="text" name="BODY" placeholder="Введите корус"/></div>
                 <label>Квартира</label>
-                <div><input class="input-reg" type="text" name="APARTMENT" placeholder="Введите квартиру"/></div>
+                <div><input class="input-reg" th:value="${agat2IdPerson[0]?.agat2Address[0]?.apartment}" type="text" name="APARTMENT" placeholder="Введите квартиру"/></div>
             </div>
         </div>
 
         <div class="div-add">
-            <button class="btn-add" type="submit">Добавить</button>
+            <button class="btn-add" type="submit">Редактировать</button>
         </div>
     </form>
 </div>

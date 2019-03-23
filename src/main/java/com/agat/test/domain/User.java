@@ -16,8 +16,9 @@ import java.util.Set;
 public class User implements UserDetails {
     @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO)
-    @SequenceGenerator(name = "mySeqGen", sequenceName = "dbsequence",initialValue = 3000, allocationSize = 25)
-    @GeneratedValue(generator = "mySeqGen")
+    @GeneratedValue(generator = "mySeqGen", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "mySeqGen", sequenceName = "DBSEQUENCE", initialValue = 4000, allocationSize = 25)
+
     private Integer id;
 //    @Column(name = "USERNAME")
     private String username;
@@ -125,4 +126,5 @@ public class User implements UserDetails {
     public void setEntry_date(Date entry_date) {
         this.entry_date = entry_date;
     }
+
 }

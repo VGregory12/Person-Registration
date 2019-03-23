@@ -50,7 +50,6 @@ public class Agat2Address {
                          Integer apartment, Agat2TypeAddress agat2TypeAddress) {
 
         this.pid = pid;
-        this.apartment = apartment;
         this.locality = locality;
         this.street = street;
         this.house = house;

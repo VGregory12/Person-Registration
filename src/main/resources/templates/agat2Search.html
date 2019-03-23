@@ -35,6 +35,7 @@
         <th class="th">ДОМ</th>
         <th class="th">КОРПУС</th>
         <th class="th">КВАРТИРА</th>
+        <th class="th">РЕД-ВАНИЕ</th>
     </tr>
 
     <div  th:each="agat2Search : ${agat2SearchTable}">
@@ -55,6 +56,11 @@
                 <td class="td"><div th:each="agat2Address : ${agat2Search.agat2Address}"  th:utext="${agat2Address?.house}"/></td>
                 <td class="td"><div th:each="agat2Address : ${agat2Search.agat2Address}"  th:utext="${agat2Address?.body}"/></td>
                 <td class="td"><div th:each="agat2Address : ${agat2Search.agat2Address}"  th:utext="${agat2Address?.apartment}"/></td>
+                <td class="td">
+                    <!--<button class="btn-del">-->
+                    <a th:href="@{|agat2Edit/${agat2Search.pid}|}">Delete</a>
+                    <!--</button>-->
+                </td>
                 <!---->
                 <!--<td th:each="agat2Address : ${agat2Search.agat2Address}" class="td" th:utext="${agat2Address?.locality}"/>-->
                 <!--<td th:each="agat2Address : ${agat2Search.agat2Address}" class="td" th:utext="${agat2Address?.street}"/>-->
