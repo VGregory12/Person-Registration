@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:c="http://java.sun.com/xml/ns/javaee" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/static/search.css">
+    <link rel="stylesheet" href="/static/showMetrics.css">
+</head>
+<body>
+<table class="table tableM">
+    <tr class="table-header">
+        <th class="th">PID</th>
+        <th class="th">ФАМИЛИЯ</th>
+        <th class="th">ИМЯ</th>
+        <th class="th">ОТЧЕСТВО</th>
+        <th class="th">ИДЕН-ТОР</th>
+        <th class="th">METRICS</th>
+    </tr>
+
+    <div th:each="agat2ShowMetrics : ${agat2ShowMetricsTable}">
+
+        <tr class="table-div">
+            <td class="td" th:utext="${agat2ShowMetrics.pid}"/>
+            <td class="td" th:utext="${agat2ShowMetrics.agat2Person?.surname}"/>
+            <td class="td" th:utext="${agat2ShowMetrics.agat2Person?.name}"/>
+            <td class="td" th:utext="${agat2ShowMetrics.agat2Person?.patronymic}"/>
+            <td class="td" th:utext="${agat2ShowMetrics.agat2Person?.identifier}"/>
+            <!--<td class="td" th:utext="${agat2ShowMetrics.agat2Metrics.}"/>-->
+            <td class="tdM"><div th:each="agat2Metrics : ${agat2ShowMetrics.agat2Metrics}"
+                 th:utext="${agat2Metrics?.agat2TypeMetrics?.typeMetrics}"/></td>
+        </tr>
+    </div>
+</table>
+</body>
+</html>

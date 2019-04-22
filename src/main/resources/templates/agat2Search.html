@@ -7,9 +7,7 @@
 </head>
 <body>
 
-
 <a class="btn-back" href="/main3">Назад</a>
-
 <div class="search-div1">
     <H3 class="search-header">Поиск</H3>
     <form class="search-form" method="post" th:action="@{/filterAgat2Search}">
@@ -25,8 +23,8 @@
         <th class="th">ИМЯ</th>
         <th class="th">ОТЧЕСТВО</th>
         <th class="th">ДАТА РОЖДЕНИЯ</th>
-        <th class="th">ИДЕНТИФИКАТОР</th>
-        <th class="th">НОМЕР ДОКУМЕНТА</th>
+        <th class="th">ИДЕН-ТОР</th>
+        <th class="th">№ ДОК-ТА</th>
         <th class="th">ТИП ДОКУМЕНТА</th>
         <th class="th">ДАТА ВЫДАЧИ</th>
         <th class="th">ТИП АДРЕСА</th>
@@ -35,39 +33,65 @@
         <th class="th">ДОМ</th>
         <th class="th">КОРПУС</th>
         <th class="th">КВАРТИРА</th>
+        <th class="th">METRIC</th>
         <th class="th">РЕД-ВАНИЕ</th>
     </tr>
 
-    <div  th:each="agat2Search : ${agat2SearchTable}">
+    <div th:each="agat2Search : ${agat2SearchTable}">
 
-            <tr class="table-div" >
-                <td class="td" th:utext="${agat2Search.pid}"/>
-                <td class="td" th:utext="${agat2Search.agat2Person?.surname}"/>
-                <td class="td" th:utext="${agat2Search.agat2Person?.name}"/>
-                <td class="td" th:utext="${agat2Search.agat2Person?.patronymic}"/>
-                <td class="td" th:utext="${agat2Search.agat2Person?.birthday}"/>
-                <td class="td" th:utext="${agat2Search.agat2Person?.identifier}"/>
-                <td class="td" ><div th:each="agat2Document : ${agat2Search.agat2Document}" th:utext="${agat2Document?.doc_number}"/></td>
-                <td class="td" ><div th:each="agat2Document : ${agat2Search.agat2Document}" th:utext="${agat2Document?.doc_type}"/></td>
-                <td class="td" ><div th:each="agat2Document : ${agat2Search.agat2Document}" th:utext="${agat2Document?.date_receiving}" /></td>
-                <td class="td"><div th:each="agat2Address : ${agat2Search.agat2Address}"  th:utext="${agat2Address?.agat2TypeAddress?.typeAddress}"/></td>
-                <td class="td"><div th:each="agat2Address : ${agat2Search.agat2Address}"  th:utext="${agat2Address?.locality}"/></td>
-                <td class="td"><div th:each="agat2Address : ${agat2Search.agat2Address}"  th:utext="${agat2Address?.street}"/></td>
-                <td class="td"><div th:each="agat2Address : ${agat2Search.agat2Address}"  th:utext="${agat2Address?.house}"/></td>
-                <td class="td"><div th:each="agat2Address : ${agat2Search.agat2Address}"  th:utext="${agat2Address?.body}"/></td>
-                <td class="td"><div th:each="agat2Address : ${agat2Search.agat2Address}"  th:utext="${agat2Address?.apartment}"/></td>
-                <td class="td">
-                    <!--<button class="btn-del">-->
-                    <a th:href="@{|agat2Edit/${agat2Search.pid}|}">Delete</a>
-                    <!--</button>-->
-                </td>
-                <!---->
-                <!--<td th:each="agat2Address : ${agat2Search.agat2Address}" class="td" th:utext="${agat2Address?.locality}"/>-->
-                <!--<td th:each="agat2Address : ${agat2Search.agat2Address}" class="td" th:utext="${agat2Address?.street}"/>-->
-                <!--<td th:each="agat2Address : ${agat2Search.agat2Address}" class="td" th:utext="${agat2Address?.house}"/>-->
-                <!--<td th:each="agat2Address : ${agat2Search.agat2Address}" class="td" th:utext="${agat2Address?.body}"/>-->
-                <!--<td th:each="agat2Address : ${agat2Search.agat2Address}" class="td" th:utext="${agat2Address?.apartment}"/>-->
-            </tr>
+        <tr class="table-div">
+            <td class="td" th:utext="${agat2Search.pid}"/>
+            <td class="td" th:utext="${agat2Search.agat2Person?.surname}"/>
+            <td class="td" th:utext="${agat2Search.agat2Person?.name}"/>
+            <td class="td" th:utext="${agat2Search.agat2Person?.patronymic}"/>
+            <td class="td" th:utext="${agat2Search.agat2Person?.birthday}"/>
+            <td class="td" th:utext="${agat2Search.agat2Person?.identifier}"/>
+            <td class="td">
+                <div th:each="agat2Document : ${agat2Search.agat2Document}" th:utext="${agat2Document?.doc_number}"/>
+            </td>
+            <td class="td">
+                <div th:each="agat2Document : ${agat2Search.agat2Document}" th:utext="${agat2Document?.doc_type}"/>
+            </td>
+            <td class="td">
+                <div th:each="agat2Document : ${agat2Search.agat2Document}"
+                     th:utext="${agat2Document?.date_receiving}"/>
+            </td>
+            <td class="td">
+                <div th:each="agat2Address : ${agat2Search.agat2Address}"
+                     th:utext="${agat2Address?.agat2TypeAddress?.typeAddress}"/>
+            </td>
+            <td class="td">
+                <div th:each="agat2Address : ${agat2Search.agat2Address}" th:utext="${agat2Address?.locality}"/>
+            </td>
+            <td class="td">
+                <div th:each="agat2Address : ${agat2Search.agat2Address}" th:utext="${agat2Address?.street}"/>
+            </td>
+            <td class="td">
+                <div th:each="agat2Address : ${agat2Search.agat2Address}" th:utext="${agat2Address?.house}"/>
+            </td>
+            <td class="td">
+                <div th:each="agat2Address : ${agat2Search.agat2Address}" th:utext="${agat2Address?.body}"/>
+            </td>
+            <td class="td">
+                <div th:each="agat2Address : ${agat2Search.agat2Address}" th:utext="${agat2Address?.apartment}"/>
+            </td>
+            <!--<td class="td" th:utext="${agat2Search.agat2Person?.typeMetricsId}"/>-->
+            <td class="td">
+                <div th:each="agat2Metrics : ${agat2Search.agat2Metrics}" th:utext="${agat2Metrics?.typeMetricsId}"/>
+                <a th:href="@{|agat2ShowMetrics/${agat2Search.pid}|}">show</a></td>
+
+            <td class="td">
+                <!--<button class="btn-del">-->
+                <a class="btn-edit" th:href="@{|agat2Edit/${agat2Search.pid}|}">Edit</a>
+                <!--</button>-->
+            </td>
+            <!---->
+            <!--<td th:each="agat2Address : ${agat2Search.agat2Address}" class="td" th:utext="${agat2Address?.locality}"/>-->
+            <!--<td th:each="agat2Address : ${agat2Search.agat2Address}" class="td" th:utext="${agat2Address?.street}"/>-->
+            <!--<td th:each="agat2Address : ${agat2Search.agat2Address}" class="td" th:utext="${agat2Address?.house}"/>-->
+            <!--<td th:each="agat2Address : ${agat2Search.agat2Address}" class="td" th:utext="${agat2Address?.body}"/>-->
+            <!--<td th:each="agat2Address : ${agat2Search.agat2Address}" class="td" th:utext="${agat2Address?.apartment}"/>-->
+        </tr>
 
         <!--<td th:each="agat2Document : ${agat2Search.agat2Document}">-->
         <!--<span th:text="${agat2Document?.doc_type}" />-->

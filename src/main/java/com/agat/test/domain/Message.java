@@ -7,8 +7,7 @@ import javax.persistence.*;
 public class Message {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-
-            private Integer id;
+    private Integer id;
     @Column(name = "TEXT")
     private String text;
     @Column(name = "tag")

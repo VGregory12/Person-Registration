@@ -54,15 +54,29 @@
             <td class="td" th:utext="${agat2History.patronymic}"/>
             <td class="td" th:utext="${agat2History.birthday}"/>
             <td class="td" th:utext="${agat2History.identifier}"/>
-            <td class="td" th:utext="${agat2History.doc_number}"/>
-            <td class="td" th:utext="${agat2History.doc_type}"/>
-            <td class="td" th:utext="${agat2History.date_receiving}"/>
-            <td class="td" th:utext="${agat2History.type_address_id}"/>
-            <td class="td" th:utext="${agat2History.locality}"/>
-            <td class="td" th:utext="${agat2History.street}"/>
-            <td class="td" th:utext="${agat2History.house}"/>
-            <td class="td" th:utext="${agat2History.body}"/>
-            <td class="td" th:utext="${agat2History.apartment}"/>
+
+            <td class="td" ><div th:each="agat2HistoryDocument : ${agat2History.agat2HistoryDocument}" th:utext="${agat2HistoryDocument?.doc_number}"/></td>
+            <td class="td" ><div th:each="agat2HistoryDocument : ${agat2History.agat2HistoryDocument}" th:utext="${agat2HistoryDocument?.doc_type}"/></td>
+            <td class="td" ><div th:each="agat2HistoryDocument : ${agat2History.agat2HistoryDocument}" th:utext="${agat2HistoryDocument?.date_receiving}"/></td>
+
+
+            <td class="td" ><div th:each="agat2HistoryAddress : ${agat2History.agat2HistoryAddress}" th:utext="${agat2HistoryAddress?.agat2TypeAddress?.typeAddress}"/></td>
+            <td class="td" ><div th:each="agat2HistoryAddress : ${agat2History.agat2HistoryAddress}" th:utext="${agat2HistoryAddress?.locality}"/></td>
+            <td class="td" ><div th:each="agat2HistoryAddress : ${agat2History.agat2HistoryAddress}" th:utext="${agat2HistoryAddress?.street}"/></td>
+            <td class="td" ><div th:each="agat2HistoryAddress : ${agat2History.agat2HistoryAddress}" th:utext="${agat2HistoryAddress?.house}"/></td>
+            <td class="td" ><div th:each="agat2HistoryAddress : ${agat2History.agat2HistoryAddress}" th:utext="${agat2HistoryAddress?.body}"/></td>
+            <td class="td" ><div th:each="agat2HistoryAddress : ${agat2History.agat2HistoryAddress}" th:utext="${agat2HistoryAddress?.apartment}"/></td>
+
+
+            <!--<td class="td" th:utext="${agat2History.doc_number}"/>-->
+            <!--<td class="td" th:utext="${agat2History.doc_type}"/>-->
+            <!--<td class="td" th:utext="${agat2History.date_receiving}"/>-->
+            <!--<td class="td" th:utext="${agat2History.type_address_id}"/>-->
+            <!--<td class="td" th:utext="${agat2History.locality}"/>-->
+            <!--<td class="td" th:utext="${agat2History.street}"/>-->
+            <!--<td class="td" th:utext="${agat2History.house}"/>-->
+            <!--<td class="td" th:utext="${agat2History.body}"/>-->
+            <!--<td class="td" th:utext="${agat2History.apartment}"/>-->
             <td class="td" th:utext="${agat2History.entry_date}"/>
             <td class="td" th:utext="${agat2History?.user_id}"/>
 

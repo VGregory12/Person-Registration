@@ -2,29 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="427e70f1-6982-4ed4-afcb-4b7966f8ef13" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/agat2Edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2HistoryAddress.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2HistoryDocument.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Metrics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2TypeMetrics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2HistoryAddressRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2HistoryDocumentRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2MetricsRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2TypeMetricsRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/showMetrics.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/agat2DocumentAdd.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/agat2ShowMetrics.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/45264182-81b2-4d68-b76c-5480cb750c8c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/45264182-81b2-4d68-b76c-5480cb750c8c.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/45264182-81b2-4d68-b76c-5480cb750c8c/storage_v2/_src_/schema/AGATMIN.uXBY6w.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/45264182-81b2-4d68-b76c-5480cb750c8c/storage_v2/_src_/schema/AGATMIN.uXBY6w.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/agat/test/controller/GreetingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/controller/GreetingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agat/test/controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/controller/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agat/test/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Document.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2History.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2History.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2IdPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2IdPerson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Message.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/agat/test/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2AddressRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2AddressRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2DocumentRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2DocumentRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2HistoryRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2HistoryRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2IdPersonRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2IdPersonRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2Id_PersonFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2Id_PersonFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2PersonRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2PersonRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2PersonFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2PersonFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/agat2Registration.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/agat2Registration.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/search.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/agat2Document.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/agat2Document.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/agat2Edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/agat2Edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/agat2History.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/agat2History.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/agat2Person.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/agat2Person.mustache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/agat2Registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/agat2Registration.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/agat2Search.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/agat2Search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/agat2Users.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/agat2Users.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main3.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registration.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/registration.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/agat/test/controller/RegistrationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/agat/test/controller/RegistrationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/agat/test/domain/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/agat/test/domain/Message.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/agat/test/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/agat/test/domain/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/agat2Person.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/agat2Person.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/agat2Document.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/agat2Document.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/agat2Users.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/agat2Users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/registration.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/registration.mustache" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,18 +88,41 @@
         <item name="AGATMIN" type="feb32156:DbDataSourceImpl" />
         <item name="AGATMIN: schema" type="3abd1b6a:OraImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="TYPE_ADDRESS: table" type="942f455b:OraImplModel$Table" />
+        <item name="METRICS: table" type="942f455b:OraImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="AGATMIN" type="feb32156:DbDataSourceImpl" />
+        <item name="AGATMIN: schema" type="3abd1b6a:OraImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="TYPE_METRICS: table" type="942f455b:OraImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="AGATMIN" type="feb32156:DbDataSourceImpl" />
+        <item name="AGATMIN: schema" type="3abd1b6a:OraImplModel$Schema" />
+        <item name="sequences" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
     </expand>
     <select />
+  </component>
+  <component name="ExecutionTargetDialog">
+    <checked>
+      <node key="45264182-81b2-4d68-b76c-5480cb750c8c">
+        <node key="AGATMIN" />
+      </node>
+    </checked>
+    <expanded>
+      <node key="45264182-81b2-4d68-b76c-5480cb750c8c" />
+    </expanded>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/controller/GreetingController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-394">
-              <caret line="466" column="49" selection-start-line="466" selection-start-column="49" selection-end-line="466" selection-end-column="49" />
+            <state relative-caret-position="-335">
+              <caret line="623" column="34" lean-forward="true" selection-start-line="623" selection-start-column="34" selection-end-line="623" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -90,84 +131,96 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2Edit.html">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2Registration.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="23" column="91" selection-start-line="23" selection-start-column="91" selection-end-line="23" selection-end-column="91" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main3.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="36" column="10" lean-forward="true" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
+            <state relative-caret-position="80">
+              <caret line="41" column="74" selection-start-line="41" selection-start-column="74" selection-end-line="41" selection-end-column="74" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/userList.html">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2MetricsRepo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+            <state relative-caret-position="100">
+              <caret line="5" column="79" lean-forward="true" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="79" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2Edit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="40" column="83" selection-start-line="40" selection-start-column="83" selection-end-line="40" selection-end-column="83" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2History.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2IdPerson.mustache">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="137" selection-start-line="137" selection-end-line="149" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2Registration.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/userEdit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-            </state>
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2Search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1040">
-              <caret line="52" column="145" selection-start-line="52" selection-start-column="102" selection-end-line="52" selection-end-column="145" />
+            <state relative-caret-position="100">
+              <caret line="5" column="52" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2IdPerson.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2ShowMetrics.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="200">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="56" />
+              <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/showMetrics.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/search.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-180" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Metrics.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="271">
+              <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#854#855#0" expanded="true" />
+                <element signature="e#891#892#0" expanded="true" />
+                <element signature="e#919#920#0" expanded="true" />
+                <element signature="e#950#951#0" expanded="true" />
+                <element signature="e#976#977#0" expanded="true" />
+                <element signature="e#1015#1016#0" expanded="true" />
+                <element signature="e#1045#1046#0" expanded="true" />
+                <element signature="e#1086#1087#0" expanded="true" />
+                <element signature="e#1122#1123#0" expanded="true" />
+                <element signature="e#1181#1182#0" expanded="true" />
+                <element signature="e#1231#1232#0" expanded="true" />
+                <element signature="e#1284#1285#0" expanded="true" />
+                <element signature="e#1323#1324#0" expanded="true" />
+                <element signature="e#1397#1398#0" expanded="true" />
+                <element signature="e#1453#1454#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -179,8 +232,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package.json" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
         <option value="HTML File" />
       </list>
     </option>
@@ -201,57 +254,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/static/login.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/registration.css" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
-        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/config/MvcConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/agat2IdPerson.mustache" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/agat2Registration.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/userList.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/agat2Users.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/login.mustache" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/main.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/main2.mustache" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/registration.mustache" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/userEdit.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/userList.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/MessageRepo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/UserRepo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/We.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/GenderRepo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Document.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Person.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2TypeAddress.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Users.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Gender.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2PersonFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2SearchFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2TypeAddressRepo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2UsersRepo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/AgatRepo.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/search.css" />
         <option value="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Address.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2History.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/agat2Person.mustache" />
         <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2SearchRepo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2Id_PersonFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2PersonRepo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2DocumentRepo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2AddressRepo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2IdPersonRepo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/domain/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2HistoryRepo.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/agat2Search.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/agat2History.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/agat2Edit.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2IdPerson.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/controller/GreetingController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/agat2Registration.html" />
+        <option value="45264182-81b2-4d68-b76c-5480cb750c8c/schema/AGATMIN/sequence/TRG" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/agat2DocumentAdd.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/registration.mustache" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/agat2Users.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/main3.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/search.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/agat2Document.mustache" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/domain/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Message.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Document.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2HistoryDocument.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2History.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2HistoryDocument.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2HistoryAddress.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2HistoryAddress.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2HistoryDocumentRepo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2HistoryAddressRepo.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/agat2History.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/controller/RegistrationController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2Id_PersonFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2PersonFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2IdPersonRepo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2Metrics.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Person.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2MetricsRepo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2TypeMetricsRepo.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2IdPerson.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Metrics.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2TypeMetrics.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/agat2Registration.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/agat2Registration.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/agat2Search.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/agat2ShowMetrics.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/showMetrics.css" />
+        <option value="$PROJECT_DIR$/src/main/java/com/agat/test/controller/GreetingController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/agat2Edit.html" />
       </list>
     </option>
   </component>
@@ -273,9 +326,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="35" />
-    <option name="y" value="30" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-5" />
+    <option name="y" value="40" />
     <option name="width" value="1945" />
     <option name="height" value="1105" />
   </component>
@@ -284,7 +337,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -376,14 +429,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -394,17 +439,11 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="test" type="b2602c69:ProjectViewProjectNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -416,9 +455,9 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553162447350" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555968963449" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/DOWNLOAD/Person-Registration-master" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -607,11 +646,36 @@
       <workItem from="1553022278352" duration="6303000" />
       <workItem from="1553080470027" duration="6698000" />
       <workItem from="1553158289195" duration="4322000" />
+      <workItem from="1553338236379" duration="597000" />
+      <workItem from="1553373258121" duration="4090000" />
+      <workItem from="1553460615738" duration="4129000" />
+      <workItem from="1553497245332" duration="3894000" />
+      <workItem from="1553593326428" duration="4342000" />
+      <workItem from="1553633754697" duration="3547000" />
+      <workItem from="1553637767010" duration="2734000" />
+      <workItem from="1553666571432" duration="1388000" />
+      <workItem from="1553763628764" duration="1751000" />
+      <workItem from="1554927736063" duration="3351000" />
+      <workItem from="1555068388317" duration="4533000" />
+      <workItem from="1555263349226" duration="3673000" />
+      <workItem from="1555339756579" duration="8382000" />
+      <workItem from="1555395459182" duration="7263000" />
+      <workItem from="1555442596605" duration="1200000" />
+      <workItem from="1555474641510" duration="22423000" />
+      <workItem from="1555532743023" duration="6784000" />
+      <workItem from="1555675200823" duration="592000" />
+      <workItem from="1555699161403" duration="3851000" />
+      <workItem from="1555773697319" duration="1866000" />
+      <workItem from="1555793246090" duration="3228000" />
+      <workItem from="1555825377733" duration="8240000" />
+      <workItem from="1555868677273" duration="7407000" />
+      <workItem from="1555913012521" duration="6889000" />
+      <workItem from="1555957512493" duration="8408000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="456234000" />
+    <option name="totallyTimeSpent" value="580796000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -626,7 +690,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23557048" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2657718" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -636,19 +700,19 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932885" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8362416" weight="0.4220963" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8362416" weight="0.33002833" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49530202" weight="0.38526914" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.3286119" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.18271954" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.28470254" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" show_stripe_button="false" sideWeight="0.16375838" side_tool="true" weight="0.37818697" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.47248322" weight="0.2266289" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.47248322" weight="0.22521247" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="14" />
+      <window_info anchor="bottom" id="Version Control" order="14" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Console" order="15" weight="0.3286119" />
       <window_info anchor="bottom" id="Run Dashboard" order="16" weight="0.203966" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -657,7 +721,7 @@
       <window_info anchor="right" id="Maven" order="3" weight="0.32910448" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.15503356" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.1375839" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" />
@@ -710,7 +774,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/agat/test/controller/GreetingController.java</url>
-          <line>518</line>
+          <line>492</line>
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
@@ -718,9 +782,32 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/greeting.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/config/MvcConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-539" />
+        <state relative-caret-position="100">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/config/WebSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-656">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/domain/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/config/SpringWebConfig.java">
@@ -730,24 +817,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/config/MvcConfig.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2Id_PersonFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="200">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/controller/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2HistoryRepo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="47" column="41" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="100">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -758,51 +838,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/repos/MessageRepo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2PersonRepo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
-          <caret line="7" column="17" selection-end-line="10" />
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2HistoryAddressRepo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/repos/We.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="10" column="1" selection-end-line="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/domain/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/domain/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/search.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2TypeAddress.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="10" column="13" selection-end-line="45" />
+        <state relative-caret-position="80">
+          <caret line="7" selection-start-line="7" selection-end-line="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#647#648#0" expanded="true" />
@@ -817,10 +873,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2Address.mustache">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2TypeAddressRepo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2880">
-          <caret line="144" column="56" selection-start-line="144" selection-start-column="47" selection-end-line="144" selection-end-column="56" />
+        <state relative-caret-position="120">
+          <caret line="6" column="88" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="88" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2SearchFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://45264182-81b2-4d68-b76c-5480cb750c8c/schema/AGATMIN/table/HISTORY_ADDRESS">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://45264182-81b2-4d68-b76c-5480cb750c8c/schema/AGATMIN/table/HISTORY_DOCUMENT">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2History.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1760">
+          <caret line="92" column="58" selection-start-line="92" selection-start-column="58" selection-end-line="92" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2IdPersonRepo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -831,214 +928,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://45264182-81b2-4d68-b76c-5480cb750c8c/schema/AGATMIN/table/USR">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="37" lean-forward="true" selection-start-line="2" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2Person.mustache">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="155" column="12" selection-start-line="155" selection-start-column="12" selection-end-line="157" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2SearchRepo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="19" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2Document.mustache">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="142" column="43" selection-start-line="142" selection-start-column="29" selection-end-line="142" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2Users.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="128" column="51" selection-start-line="128" selection-start-column="41" selection-end-line="128" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/config/WebSecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="980">
-          <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2Id_PersonFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2PersonRepo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2PersonFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2DocumentRepo.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
-          <caret line="17" column="48" lean-forward="true" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
+          <caret line="14" column="54" lean-forward="true" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main2.mustache">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2269" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2IdPerson.mustache">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="134" column="12" lean-forward="true" selection-start-line="134" selection-start-column="12" selection-end-line="134" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/userList.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/registration.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2AddressRepo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/registration.mustache">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="17" column="48" lean-forward="true" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="180">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2SearchFilter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Document.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="108" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="108" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2IdPersonRepo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="52" column="37" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2114#2115#0" expanded="true" />
-            <element signature="e#2139#2140#0" expanded="true" />
-            <element signature="e#2170#2171#0" expanded="true" />
-            <element signature="e#2196#2197#0" expanded="true" />
-            <element signature="e#2227#2228#0" expanded="true" />
-            <element signature="e#2254#2255#0" expanded="true" />
-            <element signature="e#2291#2292#0" expanded="true" />
-            <element signature="e#2324#2325#0" expanded="true" />
-            <element signature="e#2357#2358#0" expanded="true" />
-            <element signature="e#2388#2389#0" expanded="true" />
-            <element signature="e#2426#2427#0" expanded="true" />
-            <element signature="e#2460#2461#0" expanded="true" />
-            <element signature="e#2495#2496#0" expanded="true" />
-            <element signature="e#2528#2529#0" expanded="true" />
-            <element signature="e#2563#2564#0" expanded="true" />
-            <element signature="e#2596#2597#0" expanded="true" />
-            <element signature="e#2631#2632#0" expanded="true" />
-            <element signature="e#2661#2662#0" expanded="true" />
-            <element signature="e#2698#2699#0" expanded="true" />
-            <element signature="e#2731#2732#0" expanded="true" />
-            <element signature="e#2765#2766#0" expanded="true" />
-            <element signature="e#2795#2796#0" expanded="true" />
-            <element signature="e#2833#2834#0" expanded="true" />
-            <element signature="e#2861#2862#0" expanded="true" />
-            <element signature="e#2900#2901#0" expanded="true" />
-            <element signature="e#2930#2931#0" expanded="true" />
-            <element signature="e#2976#2977#0" expanded="true" />
-            <element signature="e#3014#3015#0" expanded="true" />
-            <element signature="e#3054#3055#0" expanded="true" />
-            <element signature="e#3086#3087#0" expanded="true" />
-            <element signature="e#3138#3139#0" expanded="true" />
-            <element signature="e#3182#3183#0" expanded="true" />
-            <element signature="e#3228#3229#0" expanded="true" />
-            <element signature="e#3268#3269#0" expanded="true" />
-            <element signature="e#3322#3323#0" expanded="true" />
-            <element signature="e#3368#3369#0" expanded="true" />
-            <element signature="e#3418#3419#0" expanded="true" />
-            <element signature="e#3462#3463#0" expanded="true" />
-            <element signature="e#3512#3513#0" expanded="true" />
-            <element signature="e#3556#3557#0" expanded="true" />
-            <element signature="e#3603#3604#0" expanded="true" />
-            <element signature="e#3641#3642#0" expanded="true" />
-            <element signature="e#3693#3694#0" expanded="true" />
-            <element signature="e#3737#3738#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Search.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#1415#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Users.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="9" column="20" selection-end-line="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#701#702#0" expanded="true" />
-            <element signature="e#732#733#0" expanded="true" />
-            <element signature="e#780#781#0" expanded="true" />
-            <element signature="e#820#821#0" expanded="true" />
-            <element signature="e#855#856#0" expanded="true" />
-            <element signature="e#885#886#0" expanded="true" />
-            <element signature="e#932#933#0" expanded="true" />
-            <element signature="e#970#971#0" expanded="true" />
-            <element signature="e#1005#1006#0" expanded="true" />
-            <element signature="e#1038#1039#0" expanded="true" />
-            <element signature="e#1088#1089#0" expanded="true" />
-            <element signature="e#1132#1133#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="498">
+          <caret line="52" column="5" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="52" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Address.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1120">
-          <caret line="56" column="35" selection-start-line="52" selection-start-column="4" selection-end-line="56" selection-end-column="35" />
+        <state relative-caret-position="-640">
+          <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="17" selection-end-column="40" />
           <folding>
             <element signature="e#2716#2717#0" expanded="true" />
             <element signature="e#2752#2753#0" expanded="true" />
@@ -1046,40 +988,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Person.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/domain/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="71" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2History.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3000">
-          <caret line="225" column="32" selection-start-line="225" selection-start-column="32" selection-end-line="225" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5320#5321#0" expanded="true" />
-            <element signature="e#5365#5366#0" expanded="true" />
-            <element signature="e#5401#5402#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2HistoryRepo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="358">
+          <caret line="68" column="37" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1088,50 +1000,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/controller/RegistrationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
+        <state relative-caret-position="300">
+          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Document.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1092#1093#0" expanded="true" />
-            <element signature="e#1117#1118#0" expanded="true" />
-            <element signature="e#1154#1155#0" expanded="true" />
-            <element signature="e#1182#1183#0" expanded="true" />
-            <element signature="e#1213#1214#0" expanded="true" />
-            <element signature="e#1239#1240#0" expanded="true" />
-            <element signature="e#1278#1279#0" expanded="true" />
-            <element signature="e#1308#1309#0" expanded="true" />
-            <element signature="e#1346#1347#0" expanded="true" />
-            <element signature="e#1379#1380#0" expanded="true" />
-            <element signature="e#1432#1433#0" expanded="true" />
-            <element signature="e#1476#1477#0" expanded="true" />
-            <element signature="e#1515#1516#0" expanded="true" />
-            <element signature="e#1552#1553#0" expanded="true" />
-            <element signature="e#1610#1611#0" expanded="true" />
-            <element signature="e#1662#1663#0" expanded="true" />
-            <element signature="e#1697#1698#0" expanded="true" />
-            <element signature="e#1730#1731#0" expanded="true" />
-            <element signature="e#1780#1781#0" expanded="true" />
-            <element signature="e#1824#1825#0" expanded="true" />
-            <element signature="e#1859#1860#0" expanded="true" />
-            <element signature="e#1889#1890#0" expanded="true" />
-            <element signature="e#1936#1937#0" expanded="true" />
-            <element signature="e#1974#1975#0" expanded="true" />
-            <element signature="e#2009#2010#0" expanded="true" />
-            <element signature="e#2040#2041#0" expanded="true" />
-            <element signature="e#2088#2089#0" expanded="true" />
-            <element signature="e#2128#2129#0" expanded="true" />
-          </folding>
+    <entry file="das://45264182-81b2-4d68-b76c-5480cb750c8c/schema/AGATMIN/table/TYPE_ADDRESS">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="das://45264182-81b2-4d68-b76c-5480cb750c8c/schema/AGATMIN/table/ID_PERSON">
+    <entry file="das://45264182-81b2-4d68-b76c-5480cb750c8c/schema/AGATMIN/table/TYPE_METRICS">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -1145,86 +1026,162 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://45264182-81b2-4d68-b76c-5480cb750c8c/schema/AGATMIN/table/ADDRESS">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2TypeMetricsRepo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://45264182-81b2-4d68-b76c-5480cb750c8c/schema/AGATMIN/table/METRICS">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/userList.html">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+        <state relative-caret-position="40">
+          <caret line="2" column="28" selection-start-line="2" selection-end-line="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2History.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/userEdit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2Search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1040">
-          <caret line="52" column="145" selection-start-line="52" selection-start-column="102" selection-end-line="52" selection-end-column="145" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2Edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="23" column="91" selection-start-line="23" selection-start-column="91" selection-end-line="23" selection-end-column="91" />
+    <entry file="das://45264182-81b2-4d68-b76c-5480cb750c8c/schema/AGATMIN/table/ID_PERSON">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2IdPerson.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="56" />
+        <state relative-caret-position="911">
+          <caret line="143" column="48" selection-start-line="143" selection-start-column="48" selection-end-line="143" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3948#3949#0" expanded="true" />
+            <element signature="e#4015#4016#0" expanded="true" />
+            <element signature="e#4063#4064#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2TypeMetrics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/agat2Registration.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="42" column="22" lean-forward="true" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main3.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2Users.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/domain/Agat2Metrics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#854#855#0" expanded="true" />
+            <element signature="e#891#892#0" expanded="true" />
+            <element signature="e#919#920#0" expanded="true" />
+            <element signature="e#950#951#0" expanded="true" />
+            <element signature="e#976#977#0" expanded="true" />
+            <element signature="e#1015#1016#0" expanded="true" />
+            <element signature="e#1045#1046#0" expanded="true" />
+            <element signature="e#1086#1087#0" expanded="true" />
+            <element signature="e#1122#1123#0" expanded="true" />
+            <element signature="e#1181#1182#0" expanded="true" />
+            <element signature="e#1231#1232#0" expanded="true" />
+            <element signature="e#1284#1285#0" expanded="true" />
+            <element signature="e#1323#1324#0" expanded="true" />
+            <element signature="e#1397#1398#0" expanded="true" />
+            <element signature="e#1453#1454#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/repos/Agat2MetricsRepo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="79" lean-forward="true" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2Search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="52" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2History.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/search.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/showMetrics.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/agat/test/controller/GreetingController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-394">
-          <caret line="466" column="49" selection-start-line="466" selection-start-column="49" selection-end-line="466" selection-end-column="49" />
+        <state relative-caret-position="-335">
+          <caret line="623" column="34" lean-forward="true" selection-start-line="623" selection-start-column="34" selection-end-line="623" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2IdPerson.mustache">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="137" selection-start-line="137" selection-end-line="149" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2Registration.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+        <state relative-caret-position="80">
+          <caret line="41" column="74" selection-start-line="41" selection-start-column="74" selection-end-line="41" selection-end-column="74" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/main3.html">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2ShowMetrics.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="36" column="10" lean-forward="true" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
+        <state relative-caret-position="200">
+          <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/agat2Edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="40" column="83" selection-start-line="40" selection-start-column="83" selection-end-line="40" selection-end-column="83" />
         </state>
       </provider>
     </entry>

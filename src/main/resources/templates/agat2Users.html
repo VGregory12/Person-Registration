@@ -117,7 +117,9 @@
     <tr>
 
         <th>User id</th>
-        <th>User name</th>
+        <th>Mail</th>
+        <th>Name</th>
+        <th>Surname</th>
         <th>Entry date</th>
         <th>Password</th>
         <!--<th>Delete</th>-->
@@ -126,6 +128,8 @@
     <tr th:each="User : ${UserTable}">
         <td class="td1" th:utext="${User?.id}"/>
         <td class="td1" th:utext="${User.username}"/>
+        <td class="td" th:utext="${User?.name}"/>
+        <td class="td" th:utext="${User?.surname}"/>
         <td class="td" th:utext="${User?.entry_date}"/>
         <td class="td" th:utext="${User?.password}"/>
         <!--<td class="td td2">-->

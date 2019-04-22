@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/static/agat2Registration.css">
+
+</head>
+<body>
+<form class="form" method="post" th:action="@{|/agat2DocumentAdd/${pid}|}">
+    <div class="div-item">
+        <input type='hidden' value='${_csrf.token}' name='${_csrf.parameterName}'/>
+        <label>Номер документа</label>
+        <div><input class="input-reg" type="text" name="DOC_NUMBER" placeholder="Введите номер документа"/>
+        </div>
+        <label>Тип документа</label>
+        <div>
+            <select class="input-reg" name="DOC_TYPE" required>
+                <option value="ПАСПОРТ">ПАСПОРТ</option>
+                <option value="СОР">СОР</option>
+                <option value="ПЕНСИОННОЕ">ПЕНСИОННОЕ</option>
+                <option value="СПРАВКА">СПРАВКА</option>
+                <option value="ДИПЛОМ">ДИПЛОМ</option>
+            </select>
+        </div>
+        <label>Дата выдачи</label>
+        <div><input class="input-reg" type="date" name="DATE_RECEIVING" placeholder="Введите дату выдачи"/>
+        </div>
+    </div>
+    <div class="div-add">
+        <button class="btn-add" type="submit">Добавить</button>
+    </div>
+ </form>
+</body>
+</html>

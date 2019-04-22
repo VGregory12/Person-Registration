@@ -3,6 +3,7 @@ package com.agat.test.domain;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table( name = "DOCUMENT", schema = "AGATMIN")
@@ -28,6 +29,17 @@ public class Agat2Document {
     public Agat2Document (){
 
     }
+//
+//    public Agat2Document (Integer pid, Integer doc_number, String doc_type, Date date_receiving,
+//                          Date entry_date, Integer user_id){
+//
+//        this.pid = pid;
+//        this.doc_number = doc_number;
+//        this.doc_type = doc_type;
+//        this.date_receiving = date_receiving;
+//        this.entry_date = entry_date;
+//        this.user_id = user_id;
+//    }
 
     public Agat2Document (Integer pid, Integer doc_number, String doc_type, Date date_receiving,
                           Date entry_date, Integer user_id){
@@ -57,13 +69,6 @@ public class Agat2Document {
         this.pid = pid;
     }
 
-    public Integer getDoc_number() {
-        return doc_number;
-    }
-
-    public void setDoc_number(Integer doc_number) {
-        this.doc_number = doc_number;
-    }
 
     public Date getDate_receiving() {
         return date_receiving;
@@ -87,6 +92,17 @@ public class Agat2Document {
 
     public void setUser_id(Integer user_id) {
         this.user_id = user_id;
+    }
+
+
+
+
+    public Integer getDoc_number() {
+        return doc_number;
+    }
+
+    public void setDoc_number(Integer doc_number) {
+        this.doc_number = doc_number;
     }
 
     public String getDoc_type() {

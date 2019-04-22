@@ -52,4 +52,9 @@ tr:nth-child(even) {
     border-radius: 5px;
 }
 
+.btn-edit {
+    text-decoration: none;
+    color: #0007dc;
+}
+
 

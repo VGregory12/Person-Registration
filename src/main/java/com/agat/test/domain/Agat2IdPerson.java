@@ -45,12 +45,14 @@ public class Agat2IdPerson {
                           Set<Agat2Document> agat2Document,
                           Set<Agat2Address> agat2Address
 
+
     ) {
         this.entry_date = entry_date;
         this.user_id = user_id;
 //        this.agat2Person = agat2Person;
         this.agat2Document = agat2Document;
         this.agat2Address = agat2Address;
+
     }
 
     public Agat2IdPerson (Integer pid, Date entry_date, Integer user_id
@@ -65,6 +67,7 @@ public class Agat2IdPerson {
 //        this.agat2Person = agat2Person;
         this.agat2Document = agat2Document;
         this.agat2Address = agat2Address;
+
     }
 
     @OneToOne(mappedBy = "agat2IdPerson", cascade = CascadeType.ALL,
@@ -80,11 +83,16 @@ public class Agat2IdPerson {
     @JoinColumn(name = "PID", nullable = false, insertable = false, updatable = false)
     private Set<Agat2Address> agat2Address;
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "PID", nullable = false, insertable = false, updatable = false)
+    private Set<Agat2Metrics> agat2Metrics;
 
 
 
 
-        public Integer getPid() {
+
+
+    public Integer getPid() {
                 return pid;
         }
 
@@ -131,6 +139,14 @@ public class Agat2IdPerson {
 
     public void setAgat2Address(Set<Agat2Address> agat2Address) {
         this.agat2Address = agat2Address;
+    }
+
+    public Set<Agat2Metrics> getAgat2Metrics() {
+        return agat2Metrics;
+    }
+
+    public void setAgat2Metrics(Set<Agat2Metrics> agat2Metrics) {
+        this.agat2Metrics = agat2Metrics;
     }
 }
 

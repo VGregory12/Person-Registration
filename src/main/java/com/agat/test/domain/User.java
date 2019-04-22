@@ -15,9 +15,9 @@ import java.util.Set;
 
 public class User implements UserDetails {
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-    @GeneratedValue(generator = "mySeqGen", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "mySeqGen", sequenceName = "DBSEQUENCE", initialValue = 4000, allocationSize = 25)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(generator = "TED", strategy = GenerationType.SEQUENCE)
+//    @SequenceGenerator(name = "TED", sequenceName = "AGATMIN.TED")
 
     private Integer id;
 //    @Column(name = "USERNAME")
@@ -26,6 +26,10 @@ public class User implements UserDetails {
     private String password;
 //    @Column(name = "ACTIVE")
     private boolean active;
+
+    private String name;
+
+    private  String surname;
 
     private Date entry_date;
 //
@@ -50,7 +54,6 @@ public class User implements UserDetails {
 
     public boolean isAdmin() {
         return roles.contains(Role.ADMIN);
-
     }
 
     public Integer getId() {
@@ -63,6 +66,22 @@ public class User implements UserDetails {
 
     public String getUsername() {
         return username;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     @Override

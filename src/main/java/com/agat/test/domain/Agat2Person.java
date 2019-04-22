@@ -34,6 +34,8 @@ public class Agat2Person {
     @Column(name = "IDENTIFIER")
     private String identifier;
 
+
+
     public Agat2Person() {
     }
 
@@ -162,4 +164,7 @@ public class Agat2Person {
     public void setIdentifier(String identifier) {
         this.identifier = identifier;
     }
+
+
+
 }

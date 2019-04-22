@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.springframework.org/schema/data/jaxb">
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="/static/agat2Registration.css">
@@ -13,60 +14,91 @@
     <h2 class="h2-reg">Регистрация</h2>
 </div>
 
+<div id="message" class="message">
+    <p th:text="${message}"/>
+</div>
+
 <div class="form-section">
     <form class="form" method="post" th:action="@{/agat2Registration}">
         <div class="form-divs">
-            <div class="div-item">
-                <input type='hidden' value='${_csrf.token}' name='${_csrf.parameterName}'/>
-                <input type="hidden" th:value="${x}" name="PID"/>
-                <label>Фамилия</label>
-                <div><input class="input-reg" type="text" name="SURNAME" placeholder="Введите фамилию"/></div>
-                <label>Имя</label>
-                <div><input class="input-reg" type="text" name="NAME" placeholder="Введите имя"/></div>
-                <label>Отчество</label>
-                <div><input class="input-reg" type="text" name="PATRONYMIC" placeholder="Введите отчество"/></div>
-                <label>Дата рождения</label>
-                <div><input class="input-reg" type="date" name="BIRTHDAY" placeholder="Введите дату рождения"/></div>
-                <label>Идентификатор</label>
-                <div><input class="input-reg" type="long" name="IDENTIFIER" placeholder="Введите идентификатор"/></div>
-            </div>
-            <div class="div-item">
-                <label>Номер документа</label>
-                <div><input class="input-reg" type="text" name="DOC_NUMBER" placeholder="Введите номер документа"/>
+            <div>
+                <div class="div-item">
+                    <input type='hidden' value='${_csrf.token}' name='${_csrf.parameterName}'/>
+                    <input type="hidden" th:value="${x}" name="PID"/>
+                    <label>Фамилия</label>
+                    <div><input class="input-reg" type="text" name="SURNAME" placeholder="Введите фамилию"/></div>
+                    <label>Имя</label>
+                    <div><input class="input-reg" type="text" name="NAME" placeholder="Введите имя"/></div>
+                    <label>Отчество</label>
+                    <div><input class="input-reg" type="text" name="PATRONYMIC" placeholder="Введите отчество"/></div>
+                    <label>Дата рождения</label>
+                    <div><input class="input-reg" type="date" name="BIRTHDAY" placeholder="Введите дату рождения"/>
+                    </div>
+                    <label>Идентификатор</label>
+                    <div><input class="input-reg" type="long" name="IDENTIFIER" placeholder="Введите идентификатор"/>
+                    </div>
                 </div>
-                <label>Тип документа</label>
                 <div>
-                    <select class="input-reg" name="DOC_TYPE" required>
-                        <option value="ПАСПОРТ">ПАСПОРТ</option>
-                        <option value="СОР">СОР</option>
-                        <option value="ПЕНСИОННОЕ">ПЕНСИОННОЕ</option>
-                        <option value="СПРАВКА">СПРАВКА</option>
-                        <option value="ДИПЛОМ">ДИПЛОМ</option>
-                    </select>
-                </div>
-                <label>Дата выдачи</label>
-                <div><input class="input-reg" type="date" name="DATE_RECEIVING" placeholder="Введите дату выдачи"/>
+                    <a class="btn-add-doclist" onclick="duplicateMetrics()">+</a>
+                    <div class="div-item">
+                        <div id="metrics" class="metrics">
+                            <label>Metrics</label>
+                            <div>
+                                <select class="input-reg" name="TYPE_METRICS_ID" required>
+                                    <option value="null"></option>
+                                    <option value="1">ГЕРОЙ ВОЙНЫ</option>
+                                    <option value="2">ИНВАЛИД 1 ИЛИ 2 ГРУППЫ</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="div-item">
-                <label>Отчество</label>
-                <div>
-                    <select class="input-reg" name="TYPE_ADDRESS_ID" required>
-                        <option value="1">РЕГИСТРАЦИЯ</option>
-                        <option value="2">ПРОЖИВАНИЕ</option>
-                        <option value="3">СОВПАДАЕТ</option>
-                    </select>
+            <div>
+                <a class="btn-add-doclist" onclick="duplicateDocument()">+</a>
+                <div id="div-item-document" class="div-item">
+                    <label>Номер документа</label>
+                    <div><input class="input-reg" type="text" name="DOC_NUMBER" placeholder="Введите номер документа"/>
+                    </div>
+                    <label>Тип документа</label>
+                    <div>
+                        <select class="input-reg" name="DOC_TYPE" required>
+                            <option value="ПАСПОРТ">ПАСПОРТ</option>
+                            <option value="СОР">СОР</option>
+                            <option value="ПЕНСИОННОЕ">ПЕНСИОННОЕ</option>
+                            <option value="СПРАВКА">СПРАВКА</option>
+                            <option value="ДИПЛОМ">ДИПЛОМ</option>
+                        </select>
+                    </div>
+                    <label>Дата выдачи</label>
+                    <div><input class="input-reg" type="date" name="DATE_RECEIVING" placeholder="Введите дату выдачи"/>
+                    </div>
                 </div>
-                <label>Населенный пункт</label>
-                <div><input class="input-reg" type="text" name="LOCALITY" placeholder="Введите Населенный пункт"/></div>
-                <label>Улица</label>
-                <div><input class="input-reg" type="text" name="STREET" placeholder="Введите улицу"/></div>
-                <label>Дом</label>
-                <div><input class="input-reg" type="text" name="HOUSE" placeholder="Введите дом"/></div>
-                <label>Корпус</label>
-                <div><input class="input-reg" type="text" name="BODY" placeholder="Введите корус"/></div>
-                <label>Квартира</label>
-                <div><input class="input-reg" type="text" name="APARTMENT" placeholder="Введите квартиру"/></div>
+            </div>
+
+            <div>
+                <a class="btn-add-doclist" onclick="duplicateAddress()">+</a>
+                <div id="div-item-address" class="div-item">
+                    <label>Тип проживания</label>
+                    <div>
+                        <select class="input-reg" name="TYPE_ADDRESS_ID" required>
+                            <option value="1">РЕГИСТРАЦИЯ</option>
+                            <option value="2">ПРОЖИВАНИЕ</option>
+                            <option value="3">СОВПАДАЕТ</option>
+                        </select>
+                    </div>
+                    <label>Населенный пункт</label>
+                    <div><input class="input-reg" type="text" name="LOCALITY" placeholder="Введите Населенный пункт"/>
+                    </div>
+                    <label>Улица</label>
+                    <div><input class="input-reg" type="text" name="STREET" placeholder="Введите улицу"/></div>
+                    <label>Дом</label>
+                    <div><input class="input-reg" type="text" name="HOUSE" placeholder="Введите дом"/></div>
+                    <label>Корпус</label>
+                    <div><input class="input-reg" type="text" name="BODY" placeholder="Введите корус"/></div>
+                    <label>Квартира</label>
+                    <div><input class="input-reg" type="text" name="APARTMENT" placeholder="Введите квартиру"/></div>
+                </div>
             </div>
         </div>
 
@@ -105,5 +137,36 @@
 
 <!--</table>-->
 
+<script type="text/javascript" th:inline="javascript">
+    var i = 0;
+    var originalDocument = document.getElementById('div-item-document');
+    var originalAddress = document.getElementById('div-item-address');
+    var originalMetrics = document.getElementById('metrics');
+
+
+    function duplicateDocument() {
+        var cloneDocument = originalDocument.cloneNode(true);
+        cloneDocument.id = "div-item-document" + ++i;
+        originalDocument.parentNode.appendChild(cloneDocument);
+    }
+
+    function duplicateAddress() {
+        var cloneAddress = originalAddress.cloneNode(true);
+        cloneAddress.id = "div-item-address" + ++i;
+        originalAddress.parentNode.appendChild(cloneAddress);
+    }
+
+    function duplicateMetrics() {
+        var cloneMetrics = originalMetrics.cloneNode(true);
+        cloneMetrics.id = "metrics" + ++i;
+        originalMetrics.parentNode.appendChild(cloneMetrics);
+    }
+
+    var message = document.getElementById("message");
+    if ([[${message}]] != null) {
+        alert("НЕВЕРНО ВВЕДЕН ИДЕНТИФИКАТОР");
+        message.style.display = "block";
+    }
+</script>
 </body>
 </html>

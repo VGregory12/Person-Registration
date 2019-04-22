@@ -42,9 +42,9 @@ public class RegistrationController {
             return "registration";
         }
 
+        user.setRoles(Collections.singleton(Role.USER));
         user.setEntry_date(new Date(System.currentTimeMillis()));
         user.setActive(true);
-        user.setRoles(Collections.singleton(Role.USER));
         userRepo.save(user);
 
         return "redirect:/login";

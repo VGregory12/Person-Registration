@@ -2,14 +2,10 @@ package com.agat.test.controller;
 
 import com.agat.test.domain.*;
 
-import com.agat.test.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,10 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Date;
-import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Controller
 public class GreetingController {
@@ -74,6 +67,18 @@ public class GreetingController {
 
     @Autowired
     private com.agat.test.repos.Agat2HistoryRepo Agat2HistoryRepo;
+
+    @Autowired
+    private com.agat.test.repos.Agat2HistoryDocumentRepo Agat2HistoryDocumentRepo;
+
+    @Autowired
+    private com.agat.test.repos.Agat2HistoryAddressRepo Agat2HistoryAddressRepo;
+
+    @Autowired
+    private com.agat.test.repos.Agat2MetricsRepo Agat2MetricsRepo;
+
+    @Autowired
+    private com.agat.test.repos.Agat2TypeMetricsRepo Agat2TypeMetricsRepo;
 
 
     @Value("${upload.path}")
@@ -223,10 +228,11 @@ public class GreetingController {
 
     @PostMapping("/agat2Person")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public String add(@RequestParam Integer ID, @RequestParam Integer PID, @RequestParam String SURNAME, @RequestParam String NAME, @RequestParam String PATRONYMIC,
+    public String add( @RequestParam Integer PID, @RequestParam String SURNAME, @RequestParam String NAME, @RequestParam String PATRONYMIC,
                       @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date BIRTHDAY, @RequestParam String CAUSE_DEATH, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date DATE_DEATH,
                       @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date DATE_ENTER,
                       @RequestParam Integer USER_ID, @RequestParam String IDENTIFIER,
+                      @RequestParam Integer TYPE_METRICS_ID,
                       Map<String, Object> model) {
 //        Optional<Gender> gender = GenderRepo.findById(GENDER_ID);
 //
@@ -292,20 +298,20 @@ public class GreetingController {
     }
 
 
-    @PostMapping("filterAgat2IdPerson")
-    public String filterAgat2IdPerson(@RequestParam Integer filter, Map<String, Object> model) {
-
-        Iterable<Agat2IdPerson> agat2IdPersonTable;
-        if (filter != null) {
-            agat2IdPersonTable = Agat2Id_PersonFilter.findByPid(filter);
-            model.put("agat2IdPersonTable", agat2IdPersonTable);
-            return "agat2IdPerson";
-        } else {
-            agat2IdPersonTable = Agat2IdPersonRepo.findAll();
-            model.put("agat2IdPersonTable", agat2IdPersonTable);
-            return "redirect:/agat2IdPerson";
-        }
-    }
+//    @PostMapping("filterAgat2IdPerson")
+//    public String filterAgat2IdPerson(@RequestParam Integer filter, Map<String, Object> model) {
+//
+//        Iterable<Agat2IdPerson> agat2IdPersonTable;
+//        if (filter != null) {
+//            agat2IdPersonTable = Agat2Id_PersonFilter.findByPid(filter);
+//            model.put("agat2IdPersonTable", agat2IdPersonTable);
+//            return "agat2IdPerson";
+//        } else {
+//            agat2IdPersonTable = Agat2IdPersonRepo.findAll();
+//            model.put("agat2IdPersonTable", agat2IdPersonTable);
+//            return "redirect:/agat2IdPerson";
+//        }
+//    }
 
     ////////////AGAT2ADDRESS///////////////
 
@@ -363,28 +369,52 @@ public class GreetingController {
     }
 
 
-    @PostMapping("/agat2Document")
-    public String add(@RequestParam Integer ID,
-                      @RequestParam Integer PID,
-                      @RequestParam Integer DOC_NUMBER,
-                      @RequestParam String DOC_TYPE,
-                      @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date DATE_RECEIVING,
-                      @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date ENTRY_DATE,
-                      @RequestParam Integer USER_ID,
-                      Map<String, Object> model) {
+//    @PostMapping("/agat2Document")
+//    public String add(
+//                      @RequestParam Integer PID,
+//                      @RequestParam Integer DOC_NUMBER,
+//                      @RequestParam String DOC_TYPE,
+//                      @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date DATE_RECEIVING,
+//                      @AuthenticationPrincipal User user,
+//                      Map<String, Object> model) {
+//
+//        Agat2Document agat2Document = new Agat2Document(PID, DOC_NUMBER, DOC_TYPE, DATE_RECEIVING, new Date(System.currentTimeMillis()), user.getId());
+//        Agat2DocumentRepo.save(agat2Document);
+//        Iterable<Agat2Document> agat2DocumentTable = Agat2DocumentRepo.findAll();
+//        model.put("agat2DocumentTable", agat2DocumentTable);
+//        return "agat2Document";
+//    }
 
-        Agat2Document agat2Document = new Agat2Document(PID, DOC_NUMBER, DOC_TYPE, DATE_RECEIVING, ENTRY_DATE, USER_ID);
-        Agat2DocumentRepo.save(agat2Document);
+    ///////
+    @GetMapping("/agat2DocumentAdd/{pid}")
+    public String agat2DocumentAdd(Map<String, Object> model, @PathVariable Integer pid) {
         Iterable<Agat2Document> agat2DocumentTable = Agat2DocumentRepo.findAll();
         model.put("agat2DocumentTable", agat2DocumentTable);
-        return "agat2Document";
+        return "agat2DocumentAdd";
     }
 
-    @GetMapping("/delete_agat2Document/{id}")
-    public String deleteAgat2Document(@PathVariable int id) {
-        Agat2DocumentRepo.deleteById(id);
-        return "redirect:/agat2Document";
-    }
+
+//    @PostMapping("/agat2DocumentAdd/{pid}")
+//    public String add(@PathVariable Integer pid,
+//                      @RequestParam Integer DOC_NUMBER,
+//                      @RequestParam String DOC_TYPE,
+//                      @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date DATE_RECEIVING,
+//                      @AuthenticationPrincipal User user,
+//                      Map<String, Object> model) {
+//
+//        Agat2Document agat2Document = new Agat2Document(pid, DOC_NUMBER, DOC_TYPE, DATE_RECEIVING, new Date(System.currentTimeMillis()), user.getId());
+//        Agat2DocumentRepo.save(agat2Document);
+//        Iterable<Agat2Document> agat2DocumentTable = Agat2DocumentRepo.findAll();
+//        model.put("agat2DocumentTable", agat2DocumentTable);
+//        return "agat2Document";
+//    }
+
+
+//    @GetMapping("/delete_agat2Document/{id}")
+//    public String deleteAgat2Document(@PathVariable int id) {
+//        Agat2DocumentRepo.deleteById(id);
+//        return "redirect:/agat2Document";
+//    }
 
     @PostMapping("filterAgat2Document")
     public String filterAgat2Document(@RequestParam Integer filterAgat2DocumentFilter, Map<String, Object> model) {
@@ -465,6 +495,7 @@ public class GreetingController {
         model.put("agat2PersonTable", agat2PersonTable);
         model.put("agat2UsersTable", agat2UsersTable);
         model.put("x", getRandomIntegerBetweenRange(5000, 1000000));
+//        model.put("x", generateRandomIntIntRange(10, 100));
         return "agat2Registration";
     }
 
@@ -477,37 +508,79 @@ public class GreetingController {
             @RequestParam String PATRONYMIC,
             @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date BIRTHDAY,
             @RequestParam String IDENTIFIER,
-            @RequestParam Integer DOC_NUMBER,
-            @RequestParam String DOC_TYPE,
-            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date DATE_RECEIVING,
-            @RequestParam Integer TYPE_ADDRESS_ID,
-            @RequestParam String LOCALITY,
-            @RequestParam String STREET,
-            @RequestParam Integer HOUSE,
-            @RequestParam Integer BODY,
-            @RequestParam Integer APARTMENT,
+//            @RequestParam Integer DOC_NUMBER,
+//            @RequestParam String DOC_TYPE,
+            @RequestParam List<Integer> DOC_NUMBER,
+            @RequestParam List<String> DOC_TYPE,
+            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") List<Date> DATE_RECEIVING,
+            @RequestParam List<Integer> TYPE_ADDRESS_ID,
+            @RequestParam List<String> LOCALITY,
+            @RequestParam List<String> STREET,
+            @RequestParam List<Integer> HOUSE,
+            @RequestParam List<Integer> BODY,
+            @RequestParam List<Integer> APARTMENT,
+            @RequestParam List<Integer> TYPE_METRICS_ID,
             @AuthenticationPrincipal User user,
             Map<String, Object> model) {
+
+        Agat2Person ier = Agat2PersonFilter.findByIdentifier(IDENTIFIER);
+        if( ier != null){
+            model.put("message", "НЕВЕРНО ВВЕДЕН ИДЕНТИФИКАТОР!");
+            return "agat2Registration.html";
+        }
 
 //        Agat2HistoryRepo.setCustomerName();
         Agat2IdPerson agat2IdPerson = new Agat2IdPerson(PID, new Date(System.currentTimeMillis()), user.getId());
         Agat2IdPersonRepo.save(agat2IdPerson);
+
+        for (int i = 0; i < TYPE_METRICS_ID.size(); i++) {
+            Optional<Agat2TypeMetrics> agat2TypeMetrics = Agat2TypeMetricsRepo.findById(TYPE_METRICS_ID.get(i));
+            Agat2Metrics agat2Metrics = new Agat2Metrics(agat2IdPerson.getPid(), TYPE_METRICS_ID.get(i), agat2TypeMetrics.get());
+            Agat2MetricsRepo.save(agat2Metrics);
+        }
+
         Agat2Person agat2Person = new Agat2Person(agat2IdPerson.getPid(), SURNAME, NAME, PATRONYMIC, BIRTHDAY, new Date(System.currentTimeMillis()), user.getId(), IDENTIFIER);
         Agat2PersonRepo.save(agat2Person);
-        Agat2Document agat2Document = new Agat2Document(agat2IdPerson.getPid(), DOC_NUMBER, DOC_TYPE, DATE_RECEIVING, new Date(System.currentTimeMillis()), user.getId());
-        Agat2DocumentRepo.save(agat2Document);
-        Optional<Agat2TypeAddress> agat2TypeAddress = Agat2TypeAddressRepo.findById(TYPE_ADDRESS_ID);
-        Agat2Address agat2Address = new Agat2Address(agat2IdPerson.getPid(), TYPE_ADDRESS_ID, LOCALITY, STREET, HOUSE, BODY, APARTMENT, agat2TypeAddress.get());
-        Agat2AddressRepo.save(agat2Address);
-
+        for (int i = 0; i < DOC_NUMBER.size(); i++) {
+            Agat2Document agat2Document = new Agat2Document(agat2IdPerson.getPid(), DOC_NUMBER.get(i), DOC_TYPE.get(i), DATE_RECEIVING.get(i), new Date(System.currentTimeMillis()), user.getId());
+            Agat2DocumentRepo.save(agat2Document);
+        }
+//        Agat2Document agat2Document = new Agat2Document(agat2IdPerson.getPid(), DOC_NUMBER, DOC_TYPE, DATE_RECEIVING, new Date(System.currentTimeMillis()), user.getId());
+//        Agat2DocumentRepo.save(agat2Document);
+        for (int i = 0; i < TYPE_ADDRESS_ID.size(); i++) {
+            Optional<Agat2TypeAddress> agat2TypeAddress = Agat2TypeAddressRepo.findById(TYPE_ADDRESS_ID.get(i));
+            Agat2Address agat2Address = new Agat2Address(agat2IdPerson.getPid(), TYPE_ADDRESS_ID.get(i), LOCALITY.get(i), STREET.get(i), HOUSE.get(i), BODY.get(i), APARTMENT.get(i), agat2TypeAddress.get());
+            Agat2AddressRepo.save(agat2Address);
+        }
 
         Agat2History agat2History = new Agat2History(agat2IdPerson.getPid(), agat2Person.getSurname(), agat2Person.getName(),
-                agat2Person.getPatronymic(), agat2Person.getBirthday(), agat2Person.getIdentifier(),agat2Document.getDoc_number(),
-                agat2Document.getDoc_type(), agat2Document.getDate_receiving(), agat2Address.getType_address_id(),
-                agat2Address.getLocality(), agat2Address.getStreet(), agat2Address.getHouse(), agat2Address.getBody(),
-                agat2Address.getApartment(), new Date(System.currentTimeMillis()), user.getId(), true);
+                agat2Person.getPatronymic(), agat2Person.getBirthday(), agat2Person.getIdentifier(),
+                new Date(System.currentTimeMillis()), user.getId(), true);
         Agat2HistoryRepo.save(agat2History);
+        for (int i = 0; i < DOC_NUMBER.size(); i++) {
+            Agat2HistoryDocument agat2HistoryDocument = new Agat2HistoryDocument(
+                    agat2History.getId_key(),
+                    agat2IdPerson.getPid(),
+                    DOC_NUMBER.get(i),
+                    DOC_TYPE.get(i),
+                    DATE_RECEIVING.get(i));
+            Agat2HistoryDocumentRepo.save(agat2HistoryDocument);
+        }
 
+        for (int i = 0; i < TYPE_ADDRESS_ID.size(); i++) {
+            Optional<Agat2TypeAddress> agat2TypeAddress = Agat2TypeAddressRepo.findById(TYPE_ADDRESS_ID.get(i));
+            Agat2HistoryAddress agat2HistoryAddress = new Agat2HistoryAddress(
+                    agat2History.getId_key(),
+                    agat2IdPerson.getPid(),
+                    TYPE_ADDRESS_ID.get(i),
+                    LOCALITY.get(i),
+                    STREET.get(i),
+                    HOUSE.get(i),
+                    BODY.get(i),
+                    APARTMENT.get(i),
+                    agat2TypeAddress.get());
+            Agat2HistoryAddressRepo.save(agat2HistoryAddress);
+        }
         return "agat2Registration.html";
     }
 
@@ -521,10 +594,15 @@ public class GreetingController {
     }
 
 
-    public static int getRandomIntegerBetweenRange(int min, int max){
-        int x = (int)(Math.random()*((max-min)+1))+min;
+    public static int getRandomIntegerBetweenRange(int min, int max) {
+        int x = (int) (Math.random() * ((max - min) + 1)) + min;
         return x;
     }
+    public static int generateRandomIntIntRange(int min, int max) {
+        Random r = new Random();
+        return r.nextInt((max - min) + 1) + min;
+    }
+
 
     @PostMapping("/agat2Edit/{pid}")
     public String addEdit(
@@ -534,44 +612,72 @@ public class GreetingController {
             @RequestParam String PATRONYMIC,
             @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date BIRTHDAY,
             @RequestParam String IDENTIFIER,
-            @RequestParam Integer DOC_NUMBER,
-            @RequestParam String DOC_TYPE,
-            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date DATE_RECEIVING,
-            @RequestParam Integer TYPE_ADDRESS_ID,
-            @RequestParam String LOCALITY,
-            @RequestParam String STREET,
-            @RequestParam Integer HOUSE,
-            @RequestParam Integer BODY,
-            @RequestParam Integer APARTMENT,
+            @RequestParam List<Integer> DOC_NUMBER,
+            @RequestParam List<String> DOC_TYPE,
+            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") List<Date> DATE_RECEIVING,
+            @RequestParam List<Integer> TYPE_ADDRESS_ID,
+            @RequestParam List<String> LOCALITY,
+            @RequestParam List<String> STREET,
+            @RequestParam List<Integer> HOUSE,
+            @RequestParam List<Integer> BODY,
+            @RequestParam List<Integer> APARTMENT,
+            @RequestParam List<Integer> TYPE_METRICS_ID,
             @AuthenticationPrincipal User user,
             Map<String, Object> model) {
 
         Agat2IdPersonRepo.deleteByPid(pid);
         Agat2HistoryRepo.updateHistory(pid);
 
-        Agat2IdPerson agat2IdPerson = new Agat2IdPerson( pid, new Date(System.currentTimeMillis()), user.getId());
+        Agat2IdPerson agat2IdPerson = new Agat2IdPerson(pid, new Date(System.currentTimeMillis()), user.getId());
         Agat2IdPersonRepo.save(agat2IdPerson);
+
         Agat2Person agat2Person = new Agat2Person(agat2IdPerson.getPid(), SURNAME, NAME, PATRONYMIC, BIRTHDAY, new Date(System.currentTimeMillis()), user.getId(), IDENTIFIER);
         Agat2PersonRepo.save(agat2Person);
-        Agat2Document agat2Document = new Agat2Document(agat2IdPerson.getPid(), DOC_NUMBER, DOC_TYPE, DATE_RECEIVING, new Date(System.currentTimeMillis()), user.getId());
-        Agat2DocumentRepo.save(agat2Document);
-        Optional<Agat2TypeAddress> agat2TypeAddress = Agat2TypeAddressRepo.findById(TYPE_ADDRESS_ID);
-        Agat2Address agat2Address = new Agat2Address(agat2IdPerson.getPid(), TYPE_ADDRESS_ID, LOCALITY, STREET, HOUSE, BODY, APARTMENT, agat2TypeAddress.get());
-        Agat2AddressRepo.save(agat2Address);
+        for (int i = 0; i < DOC_NUMBER.size(); i++) {
+            Agat2Document agat2Document = new Agat2Document(agat2IdPerson.getPid(), DOC_NUMBER.get(i), DOC_TYPE.get(i), DATE_RECEIVING.get(i), new Date(System.currentTimeMillis()), user.getId());
+            Agat2DocumentRepo.save(agat2Document);
+        }
+
+        for (int i = 0; i < TYPE_ADDRESS_ID.size(); i++) {
+            Optional<Agat2TypeAddress> agat2TypeAddress = Agat2TypeAddressRepo.findById(TYPE_ADDRESS_ID.get(i));
+            Agat2Address agat2Address = new Agat2Address(agat2IdPerson.getPid(), TYPE_ADDRESS_ID.get(i), LOCALITY.get(i), STREET.get(i), HOUSE.get(i), BODY.get(i), APARTMENT.get(i), agat2TypeAddress.get());
+            Agat2AddressRepo.save(agat2Address);
+        }
+        for (int i = 0; i < TYPE_METRICS_ID.size(); i++) {
+            Optional<Agat2TypeMetrics> agat2TypeMetrics = Agat2TypeMetricsRepo.findById(TYPE_METRICS_ID.get(i));
+            Agat2Metrics agat2Metrics = new Agat2Metrics(agat2IdPerson.getPid(), TYPE_METRICS_ID.get(i), agat2TypeMetrics.get());
+            Agat2MetricsRepo.save(agat2Metrics);
+        }
 
         Agat2History agat2History = new Agat2History(agat2IdPerson.getPid(), agat2Person.getSurname(), agat2Person.getName(),
-                agat2Person.getPatronymic(), agat2Person.getBirthday(), agat2Person.getIdentifier(),agat2Document.getDoc_number(),
-                agat2Document.getDoc_type(), agat2Document.getDate_receiving(), agat2Address.getType_address_id(),
-                agat2Address.getLocality(), agat2Address.getStreet(), agat2Address.getHouse(), agat2Address.getBody(),
-                agat2Address.getApartment(), new Date(System.currentTimeMillis()), user.getId(), true);
+                agat2Person.getPatronymic(), agat2Person.getBirthday(), agat2Person.getIdentifier(),
+                new Date(System.currentTimeMillis()), user.getId(), true);
         Agat2HistoryRepo.save(agat2History);
-
-
-
-
+        for (int i = 0; i < DOC_NUMBER.size(); i++) {
+            Agat2HistoryDocument agat2HistoryDocument = new Agat2HistoryDocument(
+                    agat2History.getId_key(),
+                    agat2IdPerson.getPid(),
+                    DOC_NUMBER.get(i),
+                    DOC_TYPE.get(i),
+                    DATE_RECEIVING.get(i));
+            Agat2HistoryDocumentRepo.save(agat2HistoryDocument);
+        }
+        for (int i = 0; i < TYPE_ADDRESS_ID.size(); i++) {
+            Optional<Agat2TypeAddress> agat2TypeAddress = Agat2TypeAddressRepo.findById(TYPE_ADDRESS_ID.get(i));
+            Agat2HistoryAddress agat2HistoryAddress = new Agat2HistoryAddress(
+                    agat2History.getId_key(),
+                    agat2IdPerson.getPid(),
+                    TYPE_ADDRESS_ID.get(i),
+                    LOCALITY.get(i),
+                    STREET.get(i),
+                    HOUSE.get(i),
+                    BODY.get(i),
+                    APARTMENT.get(i),
+                    agat2TypeAddress.get());
+            Agat2HistoryAddressRepo.save(agat2HistoryAddress);
+        }
         return "redirect:/agat2Search.html";
     }
-
 
 
     //// SEARCH////////
@@ -605,6 +711,15 @@ public class GreetingController {
         }
     }
 
+
+             //SHOWMETRICS///
+
+    @GetMapping("/agat2ShowMetrics/{pid}")
+    public String agat2ShowMetrics(Map<String, Object> model, @PathVariable Integer pid) {
+        Iterable<Agat2IdPerson> agat2ShowMetricsTable = Agat2IdPersonRepo.findByPid(pid);
+        model.put("agat2ShowMetricsTable", agat2ShowMetricsTable);
+        return "agat2ShowMetrics.html";
+    }
 
     //// HISTORY ////////
     @GetMapping("/agat2History")

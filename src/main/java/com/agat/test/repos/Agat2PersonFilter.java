@@ -12,7 +12,7 @@ public interface Agat2PersonFilter extends CrudRepository <Agat2Person, String>{
 //        @Query(value = "SELECT * FROM AGATMIN.PERSON WHERE agatmin.person.NAME like %?1%", nativeQuery = true)
 //        Iterable<Agat2Person> findByNameLike(String name);
 
-
+        Agat2Person findByIdentifier (String identifier);
         Iterable<Agat2Person> findByNameLike(String name);
 
 //        @Query(value = "SELECT * FROM AGATMIN.PERSON WHERE agatmin.person.NAME like '%name%'", nativeQuery = true)
