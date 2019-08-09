@@ -137,4 +137,5 @@ public class Agat2HistoryAddress {
         this.agat2TypeAddress = agat2TypeAddress;
     }
 
+
 }

@@ -495,7 +495,6 @@ public class GreetingController {
         model.put("agat2PersonTable", agat2PersonTable);
         model.put("agat2UsersTable", agat2UsersTable);
         model.put("x", getRandomIntegerBetweenRange(5000, 1000000));
-//        model.put("x", generateRandomIntIntRange(10, 100));
         return "agat2Registration";
     }
 
@@ -508,8 +507,6 @@ public class GreetingController {
             @RequestParam String PATRONYMIC,
             @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date BIRTHDAY,
             @RequestParam String IDENTIFIER,
-//            @RequestParam Integer DOC_NUMBER,
-//            @RequestParam String DOC_TYPE,
             @RequestParam List<Integer> DOC_NUMBER,
             @RequestParam List<String> DOC_TYPE,
             @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") List<Date> DATE_RECEIVING,
@@ -545,18 +542,33 @@ public class GreetingController {
             Agat2Document agat2Document = new Agat2Document(agat2IdPerson.getPid(), DOC_NUMBER.get(i), DOC_TYPE.get(i), DATE_RECEIVING.get(i), new Date(System.currentTimeMillis()), user.getId());
             Agat2DocumentRepo.save(agat2Document);
         }
-//        Agat2Document agat2Document = new Agat2Document(agat2IdPerson.getPid(), DOC_NUMBER, DOC_TYPE, DATE_RECEIVING, new Date(System.currentTimeMillis()), user.getId());
-//        Agat2DocumentRepo.save(agat2Document);
-        for (int i = 0; i < TYPE_ADDRESS_ID.size(); i++) {
+
+        for (int i = 0; i < BODY.size(); i++) {
             Optional<Agat2TypeAddress> agat2TypeAddress = Agat2TypeAddressRepo.findById(TYPE_ADDRESS_ID.get(i));
-            Agat2Address agat2Address = new Agat2Address(agat2IdPerson.getPid(), TYPE_ADDRESS_ID.get(i), LOCALITY.get(i), STREET.get(i), HOUSE.get(i), BODY.get(i), APARTMENT.get(i), agat2TypeAddress.get());
+            Agat2Address agat2Address = new Agat2Address(
+                    agat2IdPerson.getPid(),
+                    TYPE_ADDRESS_ID.get(i),
+                    LOCALITY.get(i),
+                    STREET.get(i),
+                    HOUSE.get(i),
+                    BODY.get(i),
+                    APARTMENT.get(i),
+                    agat2TypeAddress.get());
             Agat2AddressRepo.save(agat2Address);
         }
 
-        Agat2History agat2History = new Agat2History(agat2IdPerson.getPid(), agat2Person.getSurname(), agat2Person.getName(),
-                agat2Person.getPatronymic(), agat2Person.getBirthday(), agat2Person.getIdentifier(),
-                new Date(System.currentTimeMillis()), user.getId(), true);
+        Agat2History agat2History = new Agat2History(
+                PID,
+                SURNAME,
+                NAME,
+                PATRONYMIC,
+                BIRTHDAY,
+                IDENTIFIER,
+                new Date(System.currentTimeMillis()),
+                user.getId(),
+                true);
         Agat2HistoryRepo.save(agat2History);
+
         for (int i = 0; i < DOC_NUMBER.size(); i++) {
             Agat2HistoryDocument agat2HistoryDocument = new Agat2HistoryDocument(
                     agat2History.getId_key(),
@@ -567,7 +579,7 @@ public class GreetingController {
             Agat2HistoryDocumentRepo.save(agat2HistoryDocument);
         }
 
-        for (int i = 0; i < TYPE_ADDRESS_ID.size(); i++) {
+        for (int i = 0; i < BODY.size(); i++) {
             Optional<Agat2TypeAddress> agat2TypeAddress = Agat2TypeAddressRepo.findById(TYPE_ADDRESS_ID.get(i));
             Agat2HistoryAddress agat2HistoryAddress = new Agat2HistoryAddress(
                     agat2History.getId_key(),
@@ -581,6 +593,7 @@ public class GreetingController {
                     agat2TypeAddress.get());
             Agat2HistoryAddressRepo.save(agat2HistoryAddress);
         }
+
         return "agat2Registration.html";
     }
 
@@ -598,10 +611,10 @@ public class GreetingController {
         int x = (int) (Math.random() * ((max - min) + 1)) + min;
         return x;
     }
-    public static int generateRandomIntIntRange(int min, int max) {
-        Random r = new Random();
-        return r.nextInt((max - min) + 1) + min;
-    }
+//    public static int generateRandomIntIntRange(int min, int max) {
+//        Random r = new Random();
+//        return r.nextInt((max - min) + 1) + min;
+//    }
 
 
     @PostMapping("/agat2Edit/{pid}")
@@ -638,7 +651,7 @@ public class GreetingController {
             Agat2DocumentRepo.save(agat2Document);
         }
 
-        for (int i = 0; i < TYPE_ADDRESS_ID.size(); i++) {
+        for (int i = 0; i < BODY.size(); i++) {
             Optional<Agat2TypeAddress> agat2TypeAddress = Agat2TypeAddressRepo.findById(TYPE_ADDRESS_ID.get(i));
             Agat2Address agat2Address = new Agat2Address(agat2IdPerson.getPid(), TYPE_ADDRESS_ID.get(i), LOCALITY.get(i), STREET.get(i), HOUSE.get(i), BODY.get(i), APARTMENT.get(i), agat2TypeAddress.get());
             Agat2AddressRepo.save(agat2Address);
@@ -662,7 +675,7 @@ public class GreetingController {
                     DATE_RECEIVING.get(i));
             Agat2HistoryDocumentRepo.save(agat2HistoryDocument);
         }
-        for (int i = 0; i < TYPE_ADDRESS_ID.size(); i++) {
+        for (int i = 0; i < BODY.size(); i++) {
             Optional<Agat2TypeAddress> agat2TypeAddress = Agat2TypeAddressRepo.findById(TYPE_ADDRESS_ID.get(i));
             Agat2HistoryAddress agat2HistoryAddress = new Agat2HistoryAddress(
                     agat2History.getId_key(),
