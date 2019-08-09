@@ -266,7 +266,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-5" />
     <option name="y" value="40" />
     <option name="width" value="1945" />
@@ -336,7 +336,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565381149825" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565381153750" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -572,12 +572,12 @@
       <workItem from="1561106922700" duration="610000" />
       <workItem from="1564261100599" duration="1011000" />
       <workItem from="1565372411937" duration="1707000" />
-      <workItem from="1565376937706" duration="2618000" />
+      <workItem from="1565376937706" duration="3220000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="620884000" />
+    <option name="totallyTimeSpent" value="621486000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -602,7 +602,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932885" visible="true" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8362416" visible="true" weight="0.28328612" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8362416" weight="0.28328612" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49530202" weight="0.38526914" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
