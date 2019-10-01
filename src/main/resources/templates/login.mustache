@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Spring Security Example </title>
     <link rel="stylesheet" href="/static/login.css">
 </head>
 <body>
+{{#message}}
+    {{message}}
+{{/message}}
 <!--<form action="/login" method="post">-->
 <!--<div><label> User Name : <input type="text" name="username"/> </label></div>-->
 <!--<div><label> Password: <input type="password" name="password"/> </label></div>-->
@@ -18,8 +21,9 @@
     <fieldset>
         <form action="/login" method="post">
             <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
-            <input name="username" type="email" required value="Логин" onBlur="if(this.value=='')this.value='Логин'"
+            <input name="username" type="text" required value="Логин" onBlur="if(this.value=='')this.value='Логин'"
                    onFocus="if(this.value=='Логин')this.value='' ">
+            <input name="emailactive" type="text" >
             <input name="password" type="password" required value="Пароль"
                    onBlur="if(this.value=='')this.value='Пароль'" onFocus="if(this.value=='Пароль')this.value='' ">
             <input type="submit" value="ВОЙТИ">

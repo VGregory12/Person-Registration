@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <title>main4</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!--<link rel="stylesheet" href="/static/main.css">-->
+</head>
+<body>
+
+<!--<form class="tre" method="post" th:action="@{/main4}">-->
+    <!--<div><input type="text" name="ID" placeholder="Введите id"/></div>-->
+    <!--<div><input type="text" name="NAME" placeholder="Введите name"/></div>-->
+    <!--<div>-->
+        <!--<button class="btn-add" type="submit">Добавить</button>-->
+    <!--</div>-->
+<!--</form>-->
+
+<form class="tre" id="searchForm" th:action="@{/main4}" >
+      <!--method="post" -->
+      <!--th:action="@{/main4}"-->
+
+    <div><input type="text" name="ID" placeholder="Введите id"/></div>
+    <div><input type="text" name="NAME" placeholder="Введите name"/></div>
+    <input type="submit" value="Search" />
+    <!--<div>-->
+        <!--<button class="btn-add" type="submit">Добавить</button>-->
+    <!--</div>-->
+</form>
+
+<table class="table">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+    </tr>
+
+    <tr th:each="item : ${TestTable}">
+        <td class="td1" th:utext="${item?.id}"/>
+        <td class="td1" th:utext="${item?.name}"/>
+    </tr>
+</table>
+
+
+<!--<form th:action="/main4" id="searchForm">-->
+    <!--<input type="text" name="s" placeholder="Search..." />-->
+    <!--<input type="submit" value="Search" />-->
+<!--</form>-->
+<!-- результат будет отображён в этом div -->
+<div id="result"></div>
+
+<script type="text/javascript" th:inline="javascript">
+
+    // $.post('http://localhost:8080/main4', function(data) {
+    //     2
+    //     $('.result').html(data);
+    //     3
+    //     alert('Загрузка завершена.');
+    //     4
+    // });
+    /* прикрепить событие submit к форме */
+    $("#searchForm").submit(function(event) {
+        /* отключение стандартной отправки формы */
+        event.preventDefault();
+        /* собираем данные с элементов страницы: */
+        var $form = $( this ),
+        term = $form.find( 'input[name="ID"]' ).val(),
+        url = $form.attr( 'action' );
+        /* отправляем данные методом POST */
+        var posting = $.post( url, { ID: term } );
+        /* результат помещаем в div */
+        // posting.done(function( data ) {
+        //     var content = $( data ).find( '#content' );
+        //     $( "#result" ).empty().append( content );
+        // });
+    });
+
+</script>
+</body>
+</html>

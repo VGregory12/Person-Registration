@@ -15,4 +15,6 @@ public interface Agat2IdPersonRepo extends CrudRepository<Agat2IdPerson, Integer
 
     Iterable<Agat2IdPerson> findByPid(Integer pid);
 
+    Agat2IdPerson getByAgat2Address (Integer pid);
+
 }

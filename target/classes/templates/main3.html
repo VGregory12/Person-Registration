@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+<div>
+    <form th:action="@{/logout}" method="post">
+        <input type='hidden' value='${_csrf.token}' name='${_csrf.parameterName}'/>
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
+<div class="set-block">
+    <div class="set-table">МЕНЮ:</div>
+    <div class="tables">
+        <a href="agat2Registration.html">РЕГИСТРАЦИЯ</a>
+    </div>
+    <div class="tables ">
+        <a href="agat2Search.html">ПОИСК</a>
+    </div>
+    <!--<div th:switch="${length}">-->
+        <!--<p th:case="'1'">ddddddd-->
+        <!--</p>-->
+        <!--<p th:case="'0'">ffff</p>-->
+    <!--</div>-->
+    <div class="tables">
+        <a href="/user" th:text="${isAdmin} ? 'ПАНЕЛЬ АДМИНИСТРАТОРА' : ''"/>
+    </div>
+    <!--<a href="/user" th:text="fff"/>-->
+    <div class="tables">
+        <a href="/main2" th:text="${isAdmin} ? 'РАБОТА С ТАБЛИЦАМИ' : ''" />
+    </div>
+    <div class="tables">
+        <a href="/agat2History">ИСТОРИЯ</a>
+    </div>
+
+</div>
+
+</body>
+</html>

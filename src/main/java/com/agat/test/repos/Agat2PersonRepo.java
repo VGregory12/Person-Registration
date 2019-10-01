@@ -1,5 +1,6 @@
 package com.agat.test.repos;
 
+import com.agat.test.domain.Agat2IdPerson;
 import com.agat.test.domain.Agat2Person;
 
 import org.springframework.data.jpa.repository.Modifying;

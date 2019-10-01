@@ -18,7 +18,6 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
 //    @GeneratedValue(generator = "TED", strategy = GenerationType.SEQUENCE)
 //    @SequenceGenerator(name = "TED", sequenceName = "AGATMIN.TED")
-
     private Integer id;
 //    @Column(name = "USERNAME")
     private String username;
@@ -26,12 +25,12 @@ public class User implements UserDetails {
     private String password;
 //    @Column(name = "ACTIVE")
     private boolean active;
-
     private String name;
-
     private  String surname;
-
     private Date entry_date;
+    private String email;
+    private String activationCode;
+    private Integer emailactive;
 //
 
 
@@ -49,7 +48,7 @@ public class User implements UserDetails {
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name ="user_id"))
 //    хотим хранить енам в строковой
     @Enumerated(EnumType.STRING)
-    private Set<Role> roles;
+    private Set<Role>   roles;
 
 
     public boolean isAdmin() {
@@ -146,4 +145,27 @@ public class User implements UserDetails {
         this.entry_date = entry_date;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getActivationCode() {
+        return activationCode;
+    }
+
+    public void setActivationCode(String activationCode) {
+        this.activationCode = activationCode;
+    }
+
+    public Integer getEmailactive() {
+        return emailactive;
+    }
+
+    public void setEmailactive(Integer emailactive) {
+        this.emailactive = emailactive;
+    }
 }

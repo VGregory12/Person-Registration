@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/static/agat2Registration.css">
+
+</head>
+<body>
+<div class="header">
+    <a class="btn-back" href="/main3"><<</a>
+    <h2 class="h2-reg">Регистрация</h2>
+</div>
+
+<div class="form-section">
+    <form class="form" method="post" th:action="@{|/agat2Edit/${pid}|}">
+        <div class="form-divs">
+            <div>
+                <div class="div-item">
+                    <input type='hidden' value='${_csrf.token}' name='${_csrf.parameterName}'/>
+                    <label>Фамилия</label>
+                    <div><input th:value="${agat2IdPerson[0].agat2Person.surname}" class="input-reg" type="text"
+                                name="SURNAME" placeholder="Введите фамилию"/></div>
+                    <label>Имя</label>
+                    <div><input class="input-reg" th:value="${agat2IdPerson[0].agat2Person.name}" type="text"
+                                name="NAME"
+                                placeholder="Введите имя"/></div>
+                    <label>Отчество</label>
+                    <div><input class="input-reg" th:value="${agat2IdPerson[0].agat2Person.patronymic}" type="text"
+                                name="PATRONYMIC" placeholder="Введите отчество"/></div>
+                    <label>Дата рождения</label>
+                    <div><input class="input-reg" th:value="${agat2IdPerson[0].agat2Person.birthday}" type="text"
+                                name="BIRTHDAY" placeholder="Введите дату рождения"/></div>
+                    <label>Идентификатор</label>
+                    <div><input class="input-reg" th:value="${agat2IdPerson[0].agat2Person.identifier}" type="long"
+                                name="IDENTIFIER" placeholder="Введите идентификатор"/></div>
+                </div>
+
+                <div class="div-item">
+                    <div th:each="agat2Metrics : ${agat2IdPerson[0].agat2Metrics}">
+                        <label>Metrics</label>
+                        <div>
+                            <select class="input-reg" name="TYPE_METRICS_ID" required>
+                                <option th:value="${agat2Metrics.typeMetricsId}"
+                                        th:text="${agat2Metrics.agat2TypeMetrics?.typeMetrics}"/>
+                                <option value="1">ГЕРОЙ ВОЙНЫ</option>
+                                <option value="2">ИНВАЛИД 1 ИЛИ 2 ГРУППЫ</option>
+                                <option value="3">ИНВАЛИД 3 ГРУППЫ</option>
+                                <option value="4">ИНВАЛИДЫ ЧКРНОБЫЛЬЦЫ 1 или 2 ГРУППЫ</option>
+                                <option value="5">ИНВАЛИДЫ ЧКРНОБЫЛЬЦЫ 3 ГРУППЫ</option>
+                                <option value="6">ИНВАЛИДЫ ВОВ, ИНВАЛИДЫ БОЕВЫХ ДЕЙСТВИЙ</option>
+                                <option value="7">БЫВШИЕ УЗНИКИ КОНЦЛАГЕРЕЙ, ТЮРЕМ, ГЕТТО</option>
+                                <option value="8">ВЕТЕРАНЫ ТРУДА</option>
+                                <option value="9">ГЕРОИ БЕЛАРУСИ, ГЕРОИ СОВЕТСКОГО СОЮЗА</option>
+                                <option value="10">ГЕРОИ СОЦТРУДА</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div th:each="agat2Document : ${agat2IdPerson[0].agat2Document}">
+                    <div class="div-item">
+                        <label>Номер документа</label>
+                        <div><input th:value="${agat2Document.doc_number}" class="input-reg" type="text"
+                                    name="DOC_NUMBER"
+                                    placeholder="Введите номер документа"/>
+                        </div>
+                        <label>Тип документа</label>
+                        <div>
+                            <select class="input-reg" name="DOC_TYPE" required>
+                                <option th:value="${agat2Document.doc_type}"
+                                        th:text="${agat2Document.doc_type}"/>
+                                <option value="ПАСПОРТ">ПАСПОРТ</option>
+                                <option value="СОР">СОР</option>
+                                <option value="ПЕНСИОННОЕ">ПЕНСИОННОЕ</option>
+                                <option value="СПРАВКА">СПРАВКА</option>
+                                <option value="ДИПЛОМ">ДИПЛОМ</option>
+                            </select>
+                        </div>
+                        <label>Дата выдачи</label>
+                        <div><input class="input-reg" th:value="${agat2Document.date_receiving}"
+                                    type="text" name="DATE_RECEIVING" placeholder="Введите дату выдачи"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div th:each="agat2Address : ${agat2IdPerson[0].agat2Address}">
+                    <div class="div-item">
+                        <label>Тип адреса</label>
+                        <div>
+                            <select class="input-reg" name="TYPE_ADDRESS_ID" required>
+                                <option th:value="${agat2Address.type_address_id}"
+                                        th:text="${agat2Address.agat2TypeAddress?.typeAddress}"/>
+                                <option value="1">РЕГИСТРАЦИЯ</option>
+                                <option value="2">ПРОЖИВАНИЕ</option>
+                                <option value="3">СОВПАДАЕТ</option>
+                            </select>
+                        </div>
+                        <label>Населенный пункт<span id="span"></span></label>
+                        <div><input class="input-reg" th:value="${agat2Address?.locality}" type="text"
+                                    name="LOCALITY" placeholder="Введите Населенный пункт"/></div>
+                        <label>Улица</label>
+
+                        <div><input class="input-reg" th:value="${agat2Address?.street}" type="text"
+                                    name="STREET" placeholder="Введите улицу"/></div>
+                        <label>Дом</label>
+                        <div><input class="input-reg" th:value="${agat2Address?.house}" type="text"
+                                    name="HOUSE" placeholder="Введите дом"/></div>
+                        <label>Корпус</label>
+                        <div><input class="input-reg" th:value="${agat2Address?.body}" type="text"
+                                    name="BODY" placeholder="Введите корус"/></div>
+                        <label>Квартира</label>
+                        <div><input class="input-reg" th:value="${agat2Address?.apartment}" type="text"
+                                    name="APARTMENT" placeholder="Введите квартиру"/></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="div-add">
+            <button class="btn-add" type="submit">Редактировать</button>
+        </div>
+    </form>
+</div>
+
+
+<!--<script type="text/javascript" th:inline="javascript">-->
+<!--var b = [[${agat2IdPerson[0].agat2Document[0].doc_number}]];-->
+
+<!--</script>-->
+
+
+</body>
+</html>

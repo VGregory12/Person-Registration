@@ -2,10 +2,13 @@ package com.agat.test.controller;
 
 import com.agat.test.domain.*;
 
+import com.agat.test.repos.TestRepo;
+import com.agat.test.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -79,6 +83,8 @@ public class GreetingController {
 
     @Autowired
     private com.agat.test.repos.Agat2TypeMetricsRepo Agat2TypeMetricsRepo;
+    @Autowired
+    private com.agat.test.repos.TestRepo TestRepo;
 
 
     @Value("${upload.path}")
@@ -114,6 +120,23 @@ public class GreetingController {
         return "main3";
     }
 
+    @GetMapping("/main4")
+    public String main4(Map<String, Object> model) {
+        Iterable<Test> TestTable = TestRepo.findAll();
+        model.put("TestTable", TestTable);
+        return "main4";
+    }
+
+    @PostMapping("/main4")
+    public String main4add(@RequestParam Integer ID,
+                           @RequestParam String NAME,
+                           Map<String, Object> model) {
+        Test test = new Test(ID, NAME);
+        TestRepo.save(test);
+        Iterable<Test> TestTable = TestRepo.findAll();
+        model.put("TestTable", TestTable);
+        return "main4";
+    }
 
     @GetMapping("/opa")
     public String opa(
@@ -147,7 +170,6 @@ public class GreetingController {
             if (!uploadDir.exists()) {
                 uploadDir.mkdir();
             }
-
             String uuidFile = UUID.randomUUID().toString();
             String resultFilename = uuidFile + "." + file.getOriginalFilename();
 
@@ -640,6 +662,7 @@ public class GreetingController {
 
         Agat2IdPersonRepo.deleteByPid(pid);
         Agat2HistoryRepo.updateHistory(pid);
+
 
         Agat2IdPerson agat2IdPerson = new Agat2IdPerson(pid, new Date(System.currentTimeMillis()), user.getId());
         Agat2IdPersonRepo.save(agat2IdPerson);

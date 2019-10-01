@@ -1,0 +1,14 @@
+.tableM {
+    margin-left: auto;
+    margin-right: auto;
+    margin: 100px auto 0px auto;
+}
+.td {
+    min-width: 150px;
+    height: 80px;
+}
+
+.tdM {
+    height: 80px;
+    min-width: 350px;
+}
