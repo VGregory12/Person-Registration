@@ -91,10 +91,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        if( 10 < b) {
             auth.userDetailsService(userService)
                     .passwordEncoder(passwordEncoder);
-//        }
 //                .passwordEncoder(NoOpPasswordEncoder.getInstance());
     }
 }

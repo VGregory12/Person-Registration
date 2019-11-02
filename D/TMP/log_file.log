@@ -1,0 +1,4 @@
+2019-11-02 18:37:05 INFO  GreetingController:623 - Регистрация нового лица
+2019-11-02 18:37:05 ERROR GreetingController:624 - Это фиаско
+2019-11-02 18:39:44 INFO  GreetingController:623 - Регистрация нового лица
+2019-11-02 18:39:46 ERROR GreetingController:624 - Это фиаско

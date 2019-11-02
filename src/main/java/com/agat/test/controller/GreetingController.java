@@ -4,6 +4,7 @@ import com.agat.test.domain.*;
 
 import com.agat.test.repos.TestRepo;
 import com.agat.test.service.UserService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -26,6 +27,8 @@ import java.util.*;
 
 @Controller
 public class GreetingController {
+
+    private static final Logger log = Logger.getLogger(GreetingController.class);
 
     @Autowired
     private com.agat.test.repos.MessageRepo MessageRepo;
@@ -258,6 +261,7 @@ public class GreetingController {
                       Map<String, Object> model) {
 //        Optional<Gender> gender = GenderRepo.findById(GENDER_ID);
 //
+
         Agat2Person Agat2Person = new Agat2Person(PID, SURNAME, NAME, PATRONYMIC, BIRTHDAY, CAUSE_DEATH, DATE_DEATH, DATE_ENTER, USER_ID, IDENTIFIER);
         Agat2PersonRepo.save(Agat2Person);
         Iterable<Agat2Person> Agat2PersonTable = Agat2PersonRepo.findAll();
@@ -615,6 +619,9 @@ public class GreetingController {
                     agat2TypeAddress.get());
             Agat2HistoryAddressRepo.save(agat2HistoryAddress);
         }
+
+        log.info("Регистрация нового лица ПОЛЬЗОВАТЕЛЕМ "+ user.getSurname() + " " + user.getName() );
+        log.info("добавление лица " + SURNAME + " " + NAME + " " + PATRONYMIC + " " + IDENTIFIER);
 
         return "agat2Registration.html";
     }
